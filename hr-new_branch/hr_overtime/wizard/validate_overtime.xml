@@ -1,0 +1,30 @@
+<openerp>
+    <data>
+
+        <record id="validate_overtime_view" model="ir.ui.view">
+            <field name="name">validate.overtime.wizard.form</field>
+            <field name="model">validate.overtime.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Approve">
+                    <separator string="Approve Overtime"/>
+                    <group>
+                        <label string="Are you sure you want to validate selected overtime/s ?"/>
+                    </group>
+                    <footer>
+                        <button string="Approve" name="validate" type="object" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="action_validate_overtime"
+            multi="True"
+            groups="hr.group_hr_user"
+            key2="client_action_multi" name="Validate"
+            res_model="validate.overtime.wizard" src_model="hr.overtime"
+            view_mode="form" target="new" view_type="form" />
+
+    </data>
+</openerp>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<menuitem id="base_toolbox_menu_id" name="Tools" parent="base.menu_administration" sequence="150" groups="base.group_no_one"/>
+	</data>
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		
+		<report 
+            id="action_report_print_je"
+            model="account.move"
+            report_type="qweb-pdf"
+            string="Journal Entry"
+            name="extra_account_report.report_journal_entries"
+            file="extra_account_report.report_journal_entries"
+            print_report_name="'Journal Entry - %s' % (object.name)"
+        />
+        
+	</data>
+</openerp>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<menuitem name="Reporting" id="base_payroll_report"
+		parent="hr_payroll.menu_hr_payroll_root" />
+
+
+	<record model="ir.ui.view"
+		id="view_hr_payslip_extra_fields_form">
+		<field name="name">hr.payslip.form.extra.fields.view</field>
+		<field name="model">hr.payslip</field>
+		<field name="inherit_id" ref="hr_payroll.view_hr_payslip_form" />
+		<field name="arch" type="xml">
+			<xpath expr="//field[@name='contract_id']" position="after">
+				<field name="number_of_houres" />
+				<field name="actuall_days" />
+			</xpath>
+		</field>
+	</record>
+</odoo>

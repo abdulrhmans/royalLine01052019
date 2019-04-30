@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<report  report_type="qweb-pdf"
+			id="salary_gosi_report"  model="hr.payslip" name="l10n_sa_hr_payroll.salary_gosi"
+			string="GOSI Report" file="l10n_sa_hr_payroll.salary_gosi" />
+        
+        <record id="salary_gosi_report" model="ir.actions.report">
+	        <field name="paperformat_id" ref="common_report.common_header_landscape"/>
+	        <field name="binding_model_id" eval="False"/>
+	    </record>
+        
+
+	</data>
+</odoo>

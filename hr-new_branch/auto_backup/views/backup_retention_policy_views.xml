@@ -1,0 +1,106 @@
+<odoo>
+    <data>
+        <!-- Database backup removal option-->
+        <record id="dbBackupoptions_form" model="ir.ui.view">
+            <field name="name">db.backup.options.form</field>
+            <field name="model">db.backup.options</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Backup Removal Policy">
+					<header>
+						<field name="state" widget="statusbar" statusbar_colors='{"Draft":"blue","Active":"green"}'/>
+					</header>
+					<sheet>
+						<h1>
+	                        <field name="name" placeholder="Name of the policy" help="Name of the policy"/>
+						</h1>
+						<!-- 
+						<group col="4" colspan="2">
+							<field name="apply_on_local_files" />
+							<field name="apply_on_google_drive" />
+						</group>
+						 -->
+						<notebook>
+							<page string="Backup Retention" help="Backups to be retained from the past i.e. preceding periods">
+								<field name="preceding_periods_backups_retention" nolabel="True" placeholder="Backups Retention during preceding periods" help="Configure backups to be retained during the preceding periods"/>	
+							</page>
+						</notebook>
+					</sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="dbBackupoptions_tree" model="ir.ui.view">
+            <field name="name">db.backup.options.tree</field>
+            <field name="model">db.backup.options</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Backups">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_dbBackupoptions" model="ir.actions.act_window">
+            <field name="name">Backup Detetion Rules</field>
+            <field name="res_model">db.backup.options</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="dbBackupoptions_tree"/>
+        </record>
+
+        <menuitem name="Policy Backup Removal" parent="autobackup_config_menu_id" action="action_dbBackupoptions" id="backup_policy_config_menu" sequence="1"/>
+        
+        <record id="db_backups_retention_preceding_period_form" model="ir.ui.view">
+            <field name="name">db.backup.retention.preceding.period.form</field>
+            <field name="model">db.backup.retention.preceding.period</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Preceding Period Backup Retention">
+					<sheet>
+						<h1>
+	                        <field name="name" placeholder="Preceding Period" help="Backup Retention Settings for the preceding period"/>
+						</h1>
+						<group col="4" colspan="2">
+							<field name="period"/>
+							<!-- 
+							 -->
+							<field name="previous_period_number"/>
+							<field name="number_of_backups_to_retain"/>
+							<field name="backups_retention_order"/>
+							<!-- 
+							<field name="apply_on_local_files"/>
+							<field name="apply_on_google_drive"/>
+							 -->
+							<field name="backups_distribution"/>
+						</group>
+						<group colspan="2">
+							<field name="manual_backups_sequence" attrs="{'invisible': [('backups_distribution', 'not in', ['manual_sequence'])]}"/>
+						</group>
+					</sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="db_backups_retention_preceding_period_tree" model="ir.ui.view">
+            <field name="name">db.backup.retention.preceding.period.tree</field>
+            <field name="model">db.backup.retention.preceding.period</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Preceding Period Backup Retention">
+                    <field name="name" />
+                    <!-- 
+					<field name="period"/>
+					<field name="previous_period_number"/>
+					<field name="number_of_backups_to_retain"/>
+					<field name="apply_on_local_files"/>
+					<field name="apply_on_google_drive"/>
+					-->
+					<field name="backups_retention_order"/>
+					<field name="backups_distribution"/>
+                </tree>
+            </field>
+        </record>
+        
+    </data>
+</odoo>

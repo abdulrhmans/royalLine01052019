@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		
+		<report 
+			auto="False" menu="False"
+            id="salary_state_report"
+            model="hr.payslip"
+            report_type="qweb-pdf"
+            string="Salary Statements"
+            name="hr_report_salary.salary_state"
+            file="hr_report_salary.salary_state"
+            print_report_name="'Salary Statements'"
+        />
+		
+		<report 
+			auto="False" menu="False"
+            id="salary_detail_report"
+            model="hr.payslip"
+            report_type="qweb-pdf"
+            string="Salary Details"
+            name="hr_report_salary.salary_detail"
+            file="hr_report_salary.salary_detail"
+            print_report_name="'Salary Details'"
+        />
+        
+	</data>
+</openerp>

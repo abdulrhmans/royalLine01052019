@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>		
+		<record id="base.paperformat_euro" model="report.paperformat">
+            <field name="name">SW - QWeb Common Header-Portrait</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">23</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+        
+        <record id="common_header_landscape" model="report.paperformat">
+            <field name="name">SW - QWeb Common Header-Landscape</field>            
+            <field name="orientation">Landscape</field>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="header_line">True</field>
+            <field eval="35.0" name="margin_top"/>
+            <field eval="15.0" name="margin_bottom"/>
+            <field eval="7.0" name="margin_right"/>
+            <field eval="7.0" name="margin_left"/>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+        
+        <record id="common_header_portrait_empty" model="report.paperformat">
+            <field name="name">SW - QWeb Empty Common Header-Portrait</field>            
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">23</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+        
+        <record id="common_header_landscape_empty" model="report.paperformat">
+            <field name="name">SW - QWeb Empty Common Header-Landscape</field>            
+            <field name="orientation">Landscape</field>
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="header_line">True</field>
+            <field eval="35.0" name="margin_top"/>
+            <field eval="15.0" name="margin_bottom"/>
+            <field eval="7.0" name="margin_right"/>
+            <field eval="7.0" name="margin_left"/>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
+        
+        
+        
+        <record model="ir.ui.view" id="view_company_form">
+            <field name="name">res.company.inherit</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+	                <page string="Reports">
+	                    <group>
+	                    	<field name="custom_logo"  widget="image"/>
+	                    </group>
+	                </page>
+	            </notebook>
+                    
+            </field>
+        </record>
+        
+        
+	</data>
+</openerp>

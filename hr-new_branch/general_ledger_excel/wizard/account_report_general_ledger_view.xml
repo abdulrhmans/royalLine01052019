@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<record id="account_report_general_ledger_view"
+		model="ir.ui.view">
+		<field name="name">General Ledger</field>
+		<field name="model">account.report.general.ledger</field>
+		<field name="inherit_id"
+			ref="account.account_report_general_ledger_view" />
+		<field name="arch" type="xml">
+			<data>
+				<xpath expr="//footer/button[1]" position="after">
+				<button name="print_general_ledger_excel" class="oe_highlight" type="object" string="Export (xlsx)"/>
+				</xpath>
+
+			</data>
+		</field>
+	</record>
+
+
+
+
+
+
+
+
+
+
+</odoo>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="view_account_payment_tree" model="ir.ui.view">
+		<field name="name">Payments</field>
+		<field name="model">account.payment</field>
+		<field name="inherit_id" ref="account.view_account_payment_tree" />
+		<field name="arch" type="xml">
+			<data>
+				<field name="name" position="after">
+					<field name="move_name" string="Journal Entry"/>
+				</field>
+			</data>
+		</field>
+	</record>
+
+	<record id="view_account_supplier_payment_tree" model="ir.ui.view">
+		<field name="name">Payments</field>
+		<field name="model">account.payment</field>
+		<field name="inherit_id" ref="account.view_account_supplier_payment_tree" />
+		<field name="arch" type="xml">
+			<data>
+				<field name="name" position="after">
+					<field name="move_name" string="Journal Entry"/>
+				</field>
+			</data>
+		</field>
+	</record>
+
+	<record id="view_account_payment_search" model="ir.ui.view">
+		<field name="name">Payments</field>
+		<field name="model">account.payment</field>
+		<field name="inherit_id" ref="account.view_account_payment_search" />
+		<field name="arch" type="xml">
+			<data>
+				<field name="name" position="replace">
+					<field name="name" filter_domain="['|','|', ('name','ilike',self),('move_name','ilike',self), ('communication','ilike',self)]" string="Description"/>
+				</field>
+			</data>
+		</field>
+	</record>
+
+	<record id="view_account_payment_form" model="ir.ui.view">
+		<field name="name">Payments</field>
+		<field name="model">account.payment</field>
+		<field name="inherit_id" ref="account.view_account_payment_form" />
+		<field name="arch" type="xml">
+			<data>
+				<field name="communication" position="after">
+					<field name="move_name" string="Journal Entry"/>
+				</field>
+				<div name="button_box" position="inside">
+					<button class="oe_stat_button" name="open_journal_entries" string="Journal Entries" 
+							type="object" groups="account.group_account_user" 
+							attrs="{'invisible':[('move_line_ids','=',[])]}" icon="fa-bars"/>
+				</div>
+			</data>
+		</field>
+	</record>
+	
+</odoo>

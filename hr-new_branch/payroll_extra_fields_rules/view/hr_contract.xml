@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<odoo>
+	<data>
+			
+		<record model="ir.ui.view" id="hr_contract_extra_fields_view">
+			<field name="name">hr.contract.extra.fields.view</field>
+			<field name="model">hr.contract</field>
+			<field name="inherit_id" ref="hr_contract.hr_contract_view_form" />
+			<field name="arch" type="xml">
+				<group name="main_info" position="after">
+					<group>
+						<label for="is_other" string="Other Allowance" />
+						<div>
+							<field name="is_other" class="oe_inline" />
+						---	
+						<field name="other_amount" attrs="{'readonly':[('is_other','=',False)]}" class="oe_inline" />
+						</div>
+					</group>
+				</group>
+			</field>
+		</record>
+
+	</data>
+</odoo>

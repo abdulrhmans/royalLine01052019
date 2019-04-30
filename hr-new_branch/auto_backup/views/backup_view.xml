@@ -1,0 +1,312 @@
+<odoo>
+    <data>
+
+		<!-- Database backup configuration view-->
+        <record id="view_backup_config_form" model="ir.ui.view">
+            <field name="name">db.backup.configuration.form</field>
+            <field name="model">db.backup.configuration</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Backup Settings">
+					<sheet>
+		                <div class="oe_button_box" name="buttons">
+	    	                <button name="run_manual_backup" icon="fa-sun-o " type="object" string="Run Backup" class="oe_stat_button"/>
+						</div>
+						<h1>
+							Database: <field name="name" help='Database you want to schedule backups for.'/>
+						</h1>
+						<!-- 
+						<h2>
+							<label for="name"/>
+							<field name="name" help='Database you want to schedule backups for.'/>
+						</h2>
+						<h3>
+							<label for="port"/>
+							<field name="port" help='Port over which database is run'/>
+						</h3>
+						 -->
+	                    <group col="4" colspan="2" >
+	                    	<label for="host"/>
+	                        <div>
+	                            <field name="host" class="oe_inline"/>
+	                            <label for="port" string=" :"/>
+	                            <field name="port" class="oe_inline"/>
+	                        </div>
+	                        <field name="folder" help='Absolute path for storing the backups'/>
+	                        <field name="backup_type" help='Backup type either it can be a dump or a Zip Archive'/>
+	                        <label for="interval_number" string="Backup Every"/>
+	                        <div>
+	                            <field name="interval_number" class="oe_inline"/>
+	                            <field name="interval_type" class="oe_inline"/>
+	                        </div>
+	                        <field name="nextcall" help='Scheduled time for next backup to be taken'/>
+	                        <field name="email_upon_backpfail" help='If you check this option you can choose to automaticly get e-mailed when the backup generation failed'/>
+	                        <field name="sftp_write" help="If you check this option you can specify the details needed to write to a remote server with SFTP."/>
+	                        <field name="gdrive_write" help="If you check this option you can specify the details needed to write Google Drive Account"/>
+	                        <field name="autoremove" help='If you check this option you can choose to automaticly remove the backup with appropriate policy specified'/>
+	                        <field name="backup_remove_option" help='Select policy using which the database backup will be automatically deleted' attrs="{'invisible':[('autoremove','=',False)], 'required':[('autoremove','=',True)]}"/>
+	                        <!-- 
+	                        <field name="first_backup" readonly="1" help="Date and time of initial backup taken"/>
+	                        <field name="latest_backup" readonly="1" string="Latest Backup Taken" help="Date and time of latest backup taken"/>
+	                         -->
+	                    </group>
+						<notebook>
+							<page string="Comments">
+								<field name="comments"/>
+							</page>
+							<page string="Backups Created">
+								<field name="backups_created"/>
+							</page>
+							<page string="Email Notifications" attrs="{'invisible':[('email_upon_backpfail','=', False)]}" >
+								<field name="email_accounts" attrs="{'required':[('email_upon_backpfail','=', True)]}" help='Speify the e-mail which will be used for sending emails'/>
+								<separator string="Emails to be notified"/>								
+			                        <field name="emails_to_notify" attrs="{'required':[('email_upon_backpfail','=', True)]}" help='Fill in the e-mail where you want to be notified that the backup failed on the FTP.' nolabel="1"/>
+							</page>
+							<page string="Remote Server" attrs="{'invisible':[('sftp_write','=', False)]}" >
+		                        <field name="remote_servers" attrs="{'required':[('sftp_write','=', True)]}" help='Fill in the e-mail where you want to be notified that the backup failed on the FTP.' context="{'default_name':active_id}" nolabel="1"/>
+							</page>
+							<page string="Google Drives" attrs="{'invisible':[('gdrive_write','=',False)]}">
+								<field name="linked_google_drives" context="{'default_name':active_id}" widget="one2many_list" attrs="{'required':[('gdrive_write','=', True)]}" help='Fill in the google accounts where you want to be store the backup.' nolabel="1"/>
+							</page>
+						</notebook>
+					</sheet>
+					<div class="oe_chatter">
+	                    <field name="message_follower_ids" widget="mail_followers"/>
+	                    <field name="activity_ids" widget="mail_activity"/>
+	                    <field name="message_ids" widget="mail_thread"/>
+                	</div>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_backup_config_tree" model="ir.ui.view">
+            <field name="name">db.backup.configuration.tree</field>
+            <field name="model">db.backup.configuration</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Backups">
+                    <field name="name"/>
+                    <field name="host"/>
+                    <field name="port"/>
+                    <field name="interval_number" />
+	                <field name="interval_type" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_backup" model="ir.actions.act_window">
+            <field name="name">Configure Backups</field>
+            <field name="res_model">db.backup.configuration</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_backup_config_tree"/>
+        </record>
+
+	    <!-- Sub Menus of Root -->
+	    <menuitem name="Auto Backup" id="autobackup_main_menu_id" sequence="1" parent="base.menu_administration" />
+        <menuitem parent="autobackup_main_menu_id" action="action_backup" id="backup_conf_menu" sequence="1"/>
+
+    	<!-- Remote Servers List View Definition -->
+    	<record model="ir.ui.view" id="dbBackupremoteserverLogins_tree">
+			<field name="name">Remote Server</field>
+			<field name="model">db.backup.remote.server.logins</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="remote_name"/>
+					<field name="sftp_path"/>
+					<field name="sftp_host"/>
+					<field name="sftp_port"/>
+					<field name="sftp_user"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="dbBackupremoteserverLogins_form">
+			<field name="name">Remote Server</field>
+			<field name="model">db.backup.remote.server.logins</field>
+			<field name="arch" type="xml">
+				<form string="Remote Server">
+					<h1>
+						<field name="remote_name" placeholder="e.g. FTP Backup Server " help='Remote Server to which the database backups will be written'/>
+					</h1>
+					<h2>
+						<field name="name" invisible="True" context="{'name':'name'}"/>
+					</h2>
+					<button name="test_sftp_connection" type="object" string="Test Connection" class="oe_link"/>
+					<group col="4">
+						<field name="sftp_path" help='The location to the folder where the dumps should be written to. For example /odoo/backups/.\nFiles will then be written to /odoo/backups/ on your remote server.'/>
+						<field name="sftp_host" help='The IP address from your remote server' placeholder="For example 192.168.0.1"/>
+						<field name="sftp_port" help='The port on the FTP server that accepts SSH/SFTP calls.'/>
+						<field name="sftp_user" help='The username where the SFTP connection should be made with. This is the user on the external server.'/>
+						<field name="sftp_password" password="True" help='The password from the user where the SFTP connection should be made with. This is the password from the user on the external server.'/>
+						<field name="auto_remove"/>
+						<field name="backup_remove_option_sftp" attrs="{'invisible': [('auto_remove','=', False)]}" help="Port number exposed by the server e.g. 22, 80, 443, 5432 etc."/>
+					</group>
+					<notebook>
+						<page string="Uploaded Backup Files">
+							<field name="uploaded_backup_files"/>
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+
+    	<!-- Google Drive Account -->
+    	<record model="ir.ui.view" id="dbBackupGoogleAccounts_tree">
+			<field name="name">Google Drive</field>
+			<field name="model">db.backup.google.account</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="dbbackup_google_drive_directory"/>
+					<field name="dbbackup_google_drive_uri"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="dbBackupGoogleAccounts_form">
+			<field name="name">Google Drive</field>
+			<field name="model">db.backup.google.account</field>
+			<field name="arch" type="xml">
+				<form string="Google Drive Settings">
+					<field name="name" invisible="True"/>
+                    <div class="oe_inline">
+    	                <button name="action_open_new_tab" type="object" class="oe_link" string="Generate Authorization Code"/>
+						and paste it here
+                        <field name="dbbackup_google_drive_authorization_code" class="oe_inline" nolabel="1" colspan="4"/>
+                    </div>
+					<h2>
+						<field name="name" invisible="True"/>
+					</h2>
+					<group col="4">
+						<field name="dbbackup_google_drive_directory" help='Google Drive Directory inside which backups will reside'/>
+						<field name="auto_remove"/>
+						<field name="backup_remove_option_gdrive" attrs="{'invisible': [('auto_remove','=', False)]}"/>
+						<field name="daysto_remove_gdrive_backup"/>
+					</group>
+					<notebook>
+						<page string="Uploaded Backup Files">
+							<field name="uploaded_backup_files"/>
+						</page>
+					</notebook>
+				</form>
+			</field>
+		</record>
+
+    	<!-- Email Accounts -->
+    	<record model="ir.ui.view" id="dbBackupEmailAccounts_tree">
+			<field name="name">Email Accounts</field>
+			<field name="model">db.backup.email.accounts</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+					<field name="smtp_server"/>
+					<field name="smtp_port" />
+					<field name="smtp_security"/>
+				</tree>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="dbBackupEmailAccounts_form">
+			<field name="name">Email Accounts</field>
+			<field name="model">db.backup.email.accounts</field>
+			<field name="arch" type="xml">
+				<form string="Email Accounts">
+					<h1>
+					<field name="name" placeholder='e.g. abc@xyz.com' help='Email to be used for sending notifications'/>
+					</h1>
+					<group col="4" colspan="2">
+						<field name="smtp_server" help='SMTP server to be used for sending email'/>
+						<field name="smtp_port" help='SMTP port for forwarding emails'/>
+						<field name="smtp_security" help='SMTP security mechanism'/>
+						<field name="smtp_password" password="True" help='Password for email to be used for sending notifications'/>
+					</group>
+				</form>
+			</field>
+		</record>
+
+        <record id="action_dbBackupEmailAccounts" model="ir.actions.act_window">
+            <field name="name">Email Accounts</field>
+            <field name="res_model">db.backup.email.accounts</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="dbBackupEmailAccounts_tree"/>
+        </record>
+
+	    <!-- Sub Menus of Root -->
+	    <menuitem name="Configuration" id="autobackup_config_menu_id" parent="autobackup_main_menu_id" sequence="3"/>
+        <menuitem name="Email Accounts" parent="autobackup_config_menu_id" action="action_dbBackupEmailAccounts" id="backup_email_accounts_menu" sequence="2"/>
+
+
+		<!-- Backups Taken -->
+        <record id="dbBackups_form" model="ir.ui.view">
+            <field name="name">db.backups.form</field>
+            <field name="model">db.backups</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Backups Taken Till Date">
+					<sheet>
+						<h1>
+	                        <field name="host" help="Name of the policy"/>
+						</h1>
+	                    <group col="4" colspan="2">
+	                        <field name="port"/>
+	                        <field name="name"/>
+	                        <field name="path_db_backup"/>
+	                        <field name="backup_creation_time"/>
+	                        <field name="stored_on_local_storage"/>
+		                    <field name="stored_on_google_drive"/>
+		                    <field name="stored_on_sftp_server"/>
+	                    </group>
+	                    <notebook>
+	                    	<page string="Uploaded on Google Drive" attrs="{'invisible':[('stored_on_google_drive','=', False)]}">
+	                    		<field name="google_drive_uploads" readonly="True">
+	                    			<tree>
+	                    				<field name="google_drive_rec_id" />
+	                    				<field name="google_file_id" />
+	                    				<button name="action_download_file_in_new_tab" icon="fa-download" type="object" string="Download File"/>
+	                    			</tree>
+	                    			<form>
+	                    				<field name="google_drive_rec_id" />
+	                    				<field name="google_file_id" />
+	                    			</form>
+	                    		</field>
+	                    	</page>
+	                    	<page string="Uploaded to SFTP Server" attrs="{'invisible':[('stored_on_sftp_server','=', False)]}">
+	                    		<field name="uploaded_to_sftp_server" readonly="True"/>
+	                    	</page>
+	                    </notebook>
+					</sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="dbBackups_tree" model="ir.ui.view">
+            <field name="name">db.backups.tree</field>
+            <field name="model">db.backups</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Backups">
+                    <field name="name"/>
+                    <field name="backup_creation_time"/>
+                    <field name="backup_file_name"/>
+                    <field name="stored_on_local_storage"/>
+                    <field name="stored_on_google_drive"/>
+                    <field name="stored_on_sftp_server"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_dbBackups" model="ir.actions.act_window">
+            <field name="name">Backups</field>
+            <field name="res_model">db.backups</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="dbBackups_tree"/>
+        </record>
+
+        <menuitem parent="autobackup_main_menu_id" action="action_dbBackups" id="backup_menu" sequence="2"/>
+
+		<!--
+		-->
+    </data>
+</odoo>

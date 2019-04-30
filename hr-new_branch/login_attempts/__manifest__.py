@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+{
+    'name'      : 'SW - Login Attempts Logs',
+    'summary': "keep and view logs for all user login attempts whether successful or not",
+    'license':  "Other proprietary",
+    'author'    : 'Smart Way Business Solutions',
+    'website'   : 'https://www.smartway-jo.com',
+    'category'  : 'Extra Tools',
+    'version'   : '11.0.1.0',
+    "price"    :  7,
+    'depends': ['base', 'mail'],
+    'data': [
+        'data/update_user_status.xml',
+        'security/security_groups.xml',
+        'security/ir.model.access.csv',
+        'views/login_user_views.xml',
+        'views/res_users.xml',
+        ],
+    'images':  ["static/description/image.png"],
+    'price' : 12,
+    'currency' :  'EUR',
+    'installable': True,
+    'auto_install': False,
+    'application' :False,
+}

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="act_hr_hr_other_request_mat_list"
+			model="ir.actions.act_window">
+			<field name="res_model">hr.other.request</field>
+			<field name="name">Other Requisites</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="context">{'search_default_employee_id':
+				[active_id],'default_employee_id': active_id}
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_employee_inhmat">
+			<field name="name">hr.employee.form.inh</field>
+			<field name="model">hr.employee</field>
+			<field name="inherit_id" ref="hr.view_employee_form" />
+			<field name="arch" type="xml">
+				<div name="button_box" position="inside">
+					<button name="%(act_hr_hr_other_request_mat_list)d"
+						class="oe_stat_button" icon="fa-list" type="action">
+						<field name="other_req_count" widget="statinfo"
+							string="Other Requisites" />
+					</button>
+				</div>
+			</field>
+		</record>
+
+
+
+		<record model="ir.ui.view" id="employee_hr_other_request_view">
+			<field name="name">hr.other.request.tree</field>
+			<field name="model">hr.other.request</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Other Requisites">
+					<field name="employee_id" />
+					<field name="date" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="employee_hr_other_request_form">
+			<field name="name">hr.other.request.form</field>
+			<field name="model">hr.other.request</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Other Requisites">
+					<header>
+						<button string="Submit" name="make_sup" states="draft"
+							type="object" class="oe_highlight" />
+						<button string="Approve" name="make_app" states="submitted"
+							type="object" class="oe_highlight" groups="hr.group_hr_user" />
+						<button string="Done" name="make_done" states="approved"
+							type="object" class="oe_highlight" groups="hr.group_hr_user" />
+						<button string="Cancel" name="make_cancel"
+							states="draft,submitted,approved" type="object"
+							class="oe_highlight" groups="hr.group_hr_user" />
+						<button string="Set To draft" name="make_new"
+							states="canceled" type="object" class="oe_highlight"
+							groups="hr.group_hr_user" />
+						<field name="state" widget="statusbar"
+							statusbar_visible="draft,submitted,approved,done" />
+					</header>
+					<sheet>
+						<group>
+							<group>
+								<h1>
+									<field name="name" placeholder="Name" readonly="1" />
+								</h1>
+							</group>
+						</group>
+						<group>
+							<group>
+								<field name="employee_id"
+									attrs="{'readonly':[('state','not in',('draft'))]}"
+									options="{'no_create': True,'no_quick_create': True, 'no_create_edit': True,'no_open': True}" />
+								<field name="document" />
+							</group>
+							<group>
+								<field name="date" />
+							</group>
+						</group>
+						<group>
+							<field name="notes"
+								attrs="{'readonly':[('state','not in',('draft'))]}" />
+						</group>
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers"
+							groups="base.group_hr_user" />
+						<field name="message_ids" widget="mail_thread" />
+					</div>
+				</form>
+			</field>
+		</record>
+
+		<record id="employee_hr_other_request_search"
+			model="ir.ui.view">
+			<field name="name">hr.other.request.search</field>
+			<field name="model">hr.other.request</field>
+			<field name="arch" type="xml">
+				<search string="Other Requisites">
+					<field name="name" />
+					<field name="employee_id" />
+					<field name="date" />
+					<field name="state" />
+					<field name="notes" />
+					<filter string="Draft" name="state"
+						domain="[('state','=','draft')]" />
+					<filter string="Submitted" name="state"
+						domain="[('state','=','submitted')]" />
+					<filter string="Approved" name="state"
+						domain="[('state','=','approved')]" />
+					<filter string="Done" name="state"
+						domain="[('state','=','done')]" />
+					<filter string="Canceled" name="state"
+						domain="[('state','=','canceled')]" />
+					<group expand="0" string="Group By..." colspan="12" col="10">
+						<filter string="Employee Name" domain="[]"
+							context="{'group_by':'employee_id'}" icon="terp-project" />
+						<filter string="Status" icon="terp-go-today" domain="[]"
+							context="{'group_by':'state'}" />
+						<filter string="Date" icon="terp-go-today" domain="[]"
+							context="{'group_by':'date'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window"
+			id="action_employee_hr_other_request_custody">
+			<field name="name">Other Requisites</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.other.request</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="employee_hr_other_request_view" />
+		</record>
+
+		<menuitem id="base_menu_employee_other_request"
+			parent="hr.menu_hr_root" groups="base.group_user"
+			name="Other Requisites" sequence="90"
+			action="action_employee_hr_other_request_custody" />
+
+	</data>
+</odoo>
+

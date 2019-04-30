@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="hr_basic_ded_rule" model="hr.salary.rule">
+			<field name="name">Basic Salary Deduction</field>
+			<field name="sequence" eval="101" />
+			<field name="code">BADED</field>
+			<field name="category_id" ref="hr_payroll.DED" />
+			<field name="condition_select">none</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute"><![CDATA[
+if employee.get_paid_unpaid_hours(worked_days)[0][0] < payslip.number_of_houres:
+    result = (contract.wage - ((contract.wage/payslip.number_of_houres)*(employee.get_paid_unpaid_hours(worked_days)[0][0])))
+else:
+    result = 0.0
+    ]]></field>
+		</record>
+		
+		<record id="hr_other_rule_n" model="hr.salary.rule">
+			<field name="name">Other Allowance</field>
+			<field name="sequence" eval="5" />
+			<field name="code">OTHERA</field>
+			<field name="category_id" ref="hr_payroll.ALW" />
+			<field name="condition_select">none</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute"><![CDATA[
+if contract and contract.is_other:
+    result = contract.other_amount
+else:
+    result = 0.0
+    ]]></field>
+		</record>
+		
+		<record id="hr_other_ded_rule_n" model="hr.salary.rule">
+			<field name="name">Other Deduction</field>
+			<field name="sequence" eval="109" />
+			<field name="code">OTHDED</field>
+			<field name="category_id" ref="hr_payroll.DED" />
+			<field name="condition_select">none</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute"><![CDATA[
+if contract and contract.is_other:
+    result = (contract.other_amount - ((contract.other_amount/payslip.number_of_houres)*(employee.get_paid_unpaid_hours(worked_days)[0][0])))
+else:
+    result = 0.0
+    ]]></field>
+		</record>
+		
+		
+	</data>
+</odoo>

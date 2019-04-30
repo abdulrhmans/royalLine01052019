@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="holiday_status_public" model="hr.holidays.status">
+            <field name="name">Public Holiday</field>
+            <field name="limit" eval="True"/>
+            <field name="leave_type">public_holiday</field>
+            <field name="color_name">ivory</field>
+        </record>
+
+    </data>
+</odoo>

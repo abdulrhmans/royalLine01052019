@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+hr_eosb_calac_user,hr.eosb.calac,model_hr_eosb_calac,hr.group_hr_user,1,1,1,1
+hr_eosb_calac_manager,hr.eosb.calac,model_hr_eosb_calac,hr.group_hr_manager,1,1,1,1
+hr_eos_deduction_line_user,hr.eos.deduction.line,model_hr_eos_deduction_line,hr.group_hr_user,1,1,1,1
+hr_eos_deduction_line_manager,hr.eos.deduction.line,model_hr_eos_deduction_line,hr.group_hr_manager,1,1,1,1
+hr_eosb_rule_line_user,hr_eosb_rule_line_user,model_hr_eosb_rule_line,hr.group_hr_user,1,0,0,0
+hr_eosb_rule_line_manager,hr_eosb_rule_line_manager,model_hr_eosb_rule_line,hr.group_hr_manager,1,1,1,1
+hr_eosb_rule__user,hr_eosb_rule_user,model_hr_eosb_rule,hr.group_hr_user,1,0,0,0
+hr_eosb_rule_manager,hr_eosb_rule_manager,model_hr_eosb_rule,hr.group_hr_manager,1,1,1,1
+hr_eosb_reason_user,hr_eosb_rule_user,model_hr_eosb_reason,hr.group_hr_user,1,0,0,0
+hr_eosb_reason_manager,hr_eosb_rule_manager,model_hr_eosb_reason,hr.group_hr_manager,1,1,1,1

@@ -1,0 +1,392 @@
+id,reconcile,code,name,user_type_id/id,chart_template_id/id
+account_accounta_1_1,0,101000,CAPITAL,account.data_account_type_equity,l10nlb_chart_template
+account_accounta_1_2,0,101100,Subscribed Un-Called Capital,account.data_account_type_equity,l10nlb_chart_template
+account_accounta_1_3,0,101200,Subscribed Called and Unpaid Capital,account.data_account_type_equity,l10nlb_chart_template
+account_accounta_1_4,0,101300,Subscribed Called and Paid-Up Capital,account.data_account_type_equity,l10nlb_chart_template
+account_accounta_1_5,0,102100,Issuance Premiums,account.data_account_type_equity,l10nlb_chart_template
+account_accounta_1_6,0,102200,Merger Premiums,account.data_account_type_equity,l10nlb_chart_template
+account_accounta_1_7,0,102300,Contributions Premiums,account.data_account_type_equity,l10nlb_chart_template
+account_accounta_1_8,0,102400,Conversion Premium of Bonds to Shares ,account.data_account_type_equity,l10nlb_chart_template
+account_accounta_1_9,0,103100,Non-Amortizable Assets Reval. Variances,account.data_account_type_equity,l10nlb_chart_template
+account_accounta_1_10,0,103500,Amortizable Assets Reval. Variances,account.data_account_type_equity,l10nlb_chart_template
+account_accounta_1_11,0,109000,OWNER'S CURRENT ACCOUNT,account.data_account_type_equity,l10nlb_chart_template
+account_accounta_1_12,0,111000,LEGAL RESERVE,account.data_account_type_equity,l10nlb_chart_template
+account_accounta_1_13,0,112000,STATUTORY AND CONTRACTUAL RESERVES,account.data_account_type_equity,l10nlb_chart_template
+account_accounta_1_14,0,119000,OTHER RESERVES,account.data_account_type_equity,l10nlb_chart_template
+account_accounta_1_15,0,121000,BROUGHT FORWARD RESULTS - PROFITS ,account.data_account_type_equity,l10nlb_chart_template
+account_accounta_1_16,0,125000,BROUGHT FORWARD RESULTS - LOSSES ,account.data_account_type_equity,l10nlb_chart_template
+account_accounta_1_17,0,138000,CURRENT YEAR RESULT - PROFITS,account.data_account_type_equity,l10nlb_chart_template
+account_accounta_1_18,0,139000,CURRENT YEAR RESULT - LOSSES,account.data_account_type_equity,l10nlb_chart_template
+account_accounta_1_19,0,141000,INVESTMENT SUBSIDIES RECEIVED,account.data_account_type_equity,l10nlb_chart_template
+account_accounta_1_20,0,145000,INVEST. SUBSIDIES TRANSFERED TO RESULTS,account.data_account_type_equity,l10nlb_chart_template
+account_accounta_1_21,0,151100,Provisions for Litigations & Alike,account.data_account_type_non_current_liabilities,l10nlb_chart_template
+account_accounta_1_22,0,151200,Provisions against Guarantees Given,account.data_account_type_non_current_liabilities,l10nlb_chart_template
+account_accounta_1_23,0,151300,Provisions for Losses on Exchange,account.data_account_type_non_current_liabilities,l10nlb_chart_template
+account_accounta_1_24,0,151400,Provis. for Losses on Term Contracts,account.data_account_type_non_current_liabilities,l10nlb_chart_template
+account_accounta_1_25,0,151500,Provisions for Fines & Penalties,account.data_account_type_non_current_liabilities,l10nlb_chart_template
+account_accounta_1_26,0,151600,Provisions for Financial Risks,account.data_account_type_non_current_liabilities,l10nlb_chart_template
+account_accounta_1_27,0,151700,Provisions for Extraordinary Prices Fall,account.data_account_type_non_current_liabilities,l10nlb_chart_template
+account_accounta_1_28,0,151800,Provisions for Non-Oper. Risks & Charges,account.data_account_type_non_current_liabilities,l10nlb_chart_template
+account_accounta_1_29,0,155100,Provisions for Deferred Charges,account.data_account_type_non_current_liabilities,l10nlb_chart_template
+account_accounta_1_30,0,155210,Prov. for End of Service Indemnity,account.data_account_type_non_current_liabilities,l10nlb_chart_template
+account_accounta_1_31,0,155220,Prov. for End of Service Pensions,account.data_account_type_non_current_liabilities,l10nlb_chart_template
+account_accounta_1_32,0,155230,Prov. for Workmen's Compensations,account.data_account_type_non_current_liabilities,l10nlb_chart_template
+account_accounta_1_33,0,155300,Provision for Taxes (Other than Income Tax),account.data_account_type_non_current_liabilities,l10nlb_chart_template
+account_accounta_1_34,0,161000,LONG TERM LOANS AGAINST BONDS,account.data_account_type_non_current_liabilities,l10nlb_chart_template
+account_accounta_1_35,0,162000,LONG TERM LOANS FROM BANKS,account.data_account_type_non_current_liabilities,l10nlb_chart_template
+account_accounta_1_36,0,168000,SUNDRY LONG & MED. TERM LOANS,account.data_account_type_non_current_liabilities,l10nlb_chart_template
+account_accounta_1_37,0,180001,INTERCOMPANIES & INTERBRANCHES ACCOUNTS,account.data_account_type_non_current_liabilities,l10nlb_chart_template
+account_accounta_1_38,0,211000,BUSINESS CONCERN,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_39,0,212000,FORMATION EXPENSES,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_40,0,213000,RESEARCH & DEVELOPMENT EXPENSES,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_41,0,214000,"PATENTS, LICENSES, TRADE MARKS & ALIKE",account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_42,0,219000,OTHER INTANGIBLE FIXED ASSETS,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_43,0,221100,Virgin Lands - Basic Cost,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_44,0,221200,Built-on Properties - Basic Cost,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_45,0,221300,Extractive Lands - Basic Cost,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_46,0,221400,Landscaping Cost,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_47,0,223100,Buildings - Basic Cost,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_48,0,223200,Installations & Leasehold Improvements,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_49,0,223300,Infra-structure Constructions,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_50,0,223400,Constructions on Other Owners' Lands,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_51,0,224100,Specialized Technical Installations,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_52,0,224200,Specific Technical Installations,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_53,0,224300,Industrial Machinery & Equipment,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_54,0,224400,Industrial Tools,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_55,0,225100,Passenger Vehicles,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_56,0,225200,Transport Vehicles & Handling Equipment,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_57,0,226100,General installations & Improvements,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_58,0,226200,Office & Computer Equipment,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_59,0,226210,Office Equipment,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_60,0,226220,Computer Equipment,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_61,0,226300,Furnitures & Fixtures,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_62,0,226400,Agricultural Installations,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_63,0,226500,Re-usable Containers,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_64,0,227100,Lands under Acquisition,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_65,0,227300,Buildings under Construction,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_66,0,227400,Industrial Equipment under Installation,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_67,0,227600,Other Tangible Fixed Assets in Progress,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_68,0,228000,PARTIAL PURCHASE OF FIXED ASSETS,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_69,0,251000,EQUITY PARTICIPATIONS,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_70,0,252000,RECEIVABLES RELATED TO PARTICIPATIONS,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_71,0,253100,Ownership Deeds (Shares & Parts),account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_72,0,253500,Credit Deeds (Bonds & Coupons),account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_73,0,255100,Loans to Partners/Affiliates - Non-Current Part,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_74,0,255200,Loans to Employees - Non-Current Part,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_75,0,255800,Other Long & Medium Term Loans,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_76,0,259000,Other Long & Med.Term Receivables,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_77,0,270100,Intang. Fixed Assets Non-Amort. Reval. Var.,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_78,0,270200,Tangib. Fixed Assets Non-Amort. Reval. Var.,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_79,0,270500,Financ. Fixed Assets Non-Amort. Reval. Var.,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_80,0,280000,Amortization of Business Concern,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_81,0,281100,Amortiz.of Formation Expenses,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_82,0,281200,Amortiz.of Research & Develop. Expenses,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_83,0,281300,"Amortiz.of Patents, Licenses, Trade Marks, etc..",account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_84,0,281900,Amortiz.of Other Intang. Fixed Assets,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_85,0,282100,Deprec.of Extractive Lands & Landscaping,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_86,0,282300,Deprec.of Buildings & Constructions,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_87,0,282400,Deprec.of Machinery & Equipment,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_88,0,282500,Deprec.of Passenger & Transport Vehicles,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_89,0,282600,Deprec.of Other Tangible Fixed Assets,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_90,0,290000,Devaluation Prov. of Business Concern,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_91,0,291100,"Deval. Prov. for Patents, Trade Marks & Alike",account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_92,0,291900,Deval. Prov. for Other Intang. Fixed Assets,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_93,0,292100,Virgin Land Devaluation Provision,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_94,0,292300,Buildings Devaluation Provision,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_95,0,292600,Deval. Prov. for Other Tangib. F. Assets,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_96,0,295100,Deval. Prov. for Equity Participations,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_97,0,295200,Deval. Prov. for  Participations' Receiv.,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_98,0,295300,Deval. Prov. for Other Securities & Fin. Assets,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_99,0,295500,Deval. Prov. for Long & Medium Term Loan,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_100,0,295900,Deval. Prov. for Other Blocked Fin. Assets,account.data_account_type_fixed_assets,l10nlb_chart_template
+account_accounta_1_101,0,310000,STOCK OF RAW MATERIALS & CONSUMABLES,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_102,0,330000,"STOCK OF GOODS, WORKS & SERV. IN PROGRESS",account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_103,0,350000,STOCK OF MANUFACTURED PRODUCTS,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_104,0,370000,STOCK OF GOODS FOR SALE,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_105,0,391000,DEVAL.PROV. FOR RAW & OTHER MAT. STOCK ,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_106,0,393000,DEVAL.PROV. FOR PRODUCTS IN PROCESS,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_107,0,395000,DEVAL.PROV. FOR PRODUCTS STOCK,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_108,0,397000,DEVAL.PROV. FOR GOODS FOR SALE STOCK,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_109,1,401100,Suppliers - Invoices Payable,account.data_account_type_payable,l10nlb_chart_template
+account_accounta_1_110,1,401500,Suppliers - Notes Payable ,account.data_account_type_payable,l10nlb_chart_template
+account_accounta_1_111,1,401800,Suppliers - Invoices Not Received,account.data_account_type_payable,l10nlb_chart_template
+account_accounta_1_112,1,401900,Discounts Obtained from Suppliers,account.data_account_type_payable,l10nlb_chart_template
+account_accounta_1_113,1,403100,Fixed Assets Suppliers - Invoices Payable,account.data_account_type_payable,l10nlb_chart_template
+account_accounta_1_114,1,403500,Fixed Assets Suppliers - Notes Payable,account.data_account_type_payable,l10nlb_chart_template
+account_accounta_1_115,1,403800,F.Assets Suppliers - Invoices Not Received,account.data_account_type_payable,l10nlb_chart_template
+account_accounta_1_116,1,403900,Discounts Obtained from F.A. Suppliers,account.data_account_type_payable,l10nlb_chart_template
+account_accounta_1_117,0,409100,Advance Payments on Purchases,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_118,0,409200,Materials Suppliers Accidentally Debtors,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_119,0,409300,Fixed Assets Suppliers Accidentally Debtors,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_120,1,411100,Customers Receivables - Invoices,account.data_account_type_receivable,l10nlb_chart_template
+account_accounta_1_121,1,411500,Doubtful Customers,account.data_account_type_receivable,l10nlb_chart_template
+account_accounta_1_122,1,411900,Discounts Granted to Customers,account.data_account_type_receivable,l10nlb_chart_template
+account_accounta_1_123,1,413000,CUSTOMERS RECEIVABLES - BILLS,account.data_account_type_receivable,l10nlb_chart_template
+account_accounta_1_124,1,415000,DUES FROM CUSTOMERS ON WORKS IN PROCESS,account.data_account_type_receivable,l10nlb_chart_template
+account_accounta_1_125,1,418000,DUES FROM CUSTOMERS ON INVOICES IN PROCESS,account.data_account_type_receivable,l10nlb_chart_template
+account_accounta_1_126,0,419100,Advances Received on Sales Orders,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_127,0,419200,Customers Accidentally Creditors,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_128,0,421100,Salaries and Wages due to Personnel,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_129,0,421900,Other dues to Personnel,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_130,0,428100,Loans to Personnel,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_131,0,428200,Garnishments on Personnel Dues,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_132,0,428900,Other Receivales from Personnel,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_133,0,431100,Social Security - Payable Dues,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_134,0,431500,Social Security - Notes Payable,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_135,0,431800,Social Security - Charges to be Accounted for,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_136,0,438000,SOCIAL SECURITY RECEIVABLES,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_137,0,441100,Taxes & Duties (Except Income Tax),account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_138,0,441500,Taxes & Duties - Notes Payable,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_139,0,441800,Taxes & Duties - Charges to be Accounted for,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_140,0,442100,VAT paid on purchases of goods/services,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_141,0,442130,VAT paid on purchase of Fixed Assets,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_142,0,442160,VAT paid on overheads,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_143,0,442190,VAT paid on advances to suppliers,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_144,0,442400,VAT due to paid,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_145,0,442500,VAT end of period compensation account 4,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_146,0,442510,VAT DUE TO PAY,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_147,0,442520,VAT  RECUPERABLE,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_148,0,442610,VAT paid on goods to be recouped,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_149,0,442630,VAT on fixed assets to be recouped,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_150,0,442650,VAT deductible on overheads,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_151,0,442660,VAT paid on charges to be recouped,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_152,0,442700,VAT collected on delivery of goods,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_153,0,442710,VAT collected on delivery of services,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_154,0,442780,VAT collected on sales of fixed assets,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_155,0,442790,VAT collected on payment and advances,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_156,0,442810,VAT collected on no resident,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_157,0,442820,VAT collected on Advance Payment,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_158,0,442900,VAT end of year to be recouped from Mini,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_159,0,443100,Income Tax on Net Operating Profits,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_160,0,443200,Tax on F.Assets Disposal or Revaluation Profits,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_161,0,443500,Tax on Holding & Off-Shore Companies,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_162,0,445000,Government & Public Services - Credit Acc.,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_163,0,449000,Government & Public Services - Debit Acc.,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_164,0,451100,Related Companies Debtor Accounts,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_165,0,451110,Mother Company Debtor Account,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_166,0,451120,Affiliated Companies Debtor Accounts,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_167,0,451130,Associated Companies Debtor Accounts,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_168,0,451140,Cies Affilialed to Differ. Holdings - Deb. Acc,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_169,0,451200,Related Companies Creditor Accounts,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_170,0,451210,Mother Company Creditor Account,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_171,0,451220,Affiliated Companies Creditor Accounts,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_172,0,451230,Associated Companies Creditor Accounts,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_173,0,451240,Cies Affilialed to Differ. Holdings - Crd. Acc,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_174,0,451510,Partners & Other Related Cies - Deb. Accounts,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_175,0,451520,Partners & Other Related Cies - Credit Accounts,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_176,0,451810,Joint Ventures - Debtor Balances,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_177,0,451820,Joint Ventures - Creditor Balances,account.data_account_type_current_assets,l10nlb_chart_template
+account_accounta_1_178,0,453000,DIVIDENDS PAYABLE,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_179,0,455100,Shareholders/Partners - Contributions to the Capital,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_180,0,455200,Shareholders/Partners - Re-imbursment of the Capital,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_181,0,455700,Shareholders/Partners - Other Payables on Capital,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_182,0,459100,Shareholders - Subscribed/Un-Called Capital,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_183,0,459200,Shareholders - Subsc./Called/Unpaid Capital,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_184,0,459700,Shareholders/Partners - Other Receivables on Capital,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_185,0,461100,Payables on Consignments,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_186,1,461900,Other Operating Creditor Accounts,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_187,0,463000,Payables on Financial Fixed Assets,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_188,0,465000,Sundry Non-Operating Accounts Payable,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_189,1,468100,Receivables on Consignments,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_190,0,468900,Other Operating Debtor Accounts,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_191,0,469100,Receivables on Disposals of F. Assets & Finan.Deeds,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_192,0,469900,Other Non-Operating Debtor Accounts,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_193,0,471100,Pre-Operating Expenses,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_194,0,471200,Major Repairs to be Amortized,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_195,0,471300,Bonds Settlement Premium,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_196,0,471900,Other Deferred Charges,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_197,0,472000,Prepaid Charges,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_198,0,473000,Accrued Income,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_199,0,474000,Accrued Unpaid Charges,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_200,0,475000,Exchange Difference - Liability,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_201,0,476000,Exchange Difference - Asset,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_202,0,480000,Comptes d'Attente et Ã  RÃ©gulariser,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_203,0,491000,Provisions for Customers Bad Debts,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_204,0,495000,Prov. for Shareholders/Partners Bad Debts,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_205,0,496800,Prov. for Other Operating Bad Debts,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_206,0,496900,Prov. for Other Non-Operating Bad Debts,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_207,0,498100,Prov. for Losses on Bankrupt Clients Accounts,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_208,0,498500,Prov. for Losses on Bankrupt Partners Accounts,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_209,0,498680,Prov. for losses on Oper. Bankrupt Detbtors,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_210,0,498690,Prov. for losses on Non-Oper. Bankrupt Detbtors,account.data_account_type_current_liabilities,l10nlb_chart_template
+account_accounta_1_211,0,500000,Transferable Participation Deeds,account.data_account_type_liquidity,l10nlb_chart_template
+account_accounta_1_212,0,511000,Cheques & Coupons under Collection,account.data_account_type_liquidity,l10nlb_chart_template
+account_accounta_1_213,1,512000,Transfer Account,account.data_account_type_liquidity,l10nlb_chart_template
+account_accounta_1_214,0,512100,Banks - Current Debtor Accounts,account.data_account_type_liquidity,l10nlb_chart_template
+account_accounta_1_215,0,512200,Banks - Facilities Accidentally Debtor,account.data_account_type_liquidity,l10nlb_chart_template
+account_accounta_1_216,0,512300,Banks - Term Deposits Accounts,account.data_account_type_liquidity,l10nlb_chart_template
+account_accounta_1_217,0,519100,Banks & Financial Establishments Facilities,account.data_account_type_liquidity,l10nlb_chart_template
+account_accounta_1_218,0,519200,Banks Current Accounts Accidentally Creditor,account.data_account_type_liquidity,l10nlb_chart_template
+account_accounta_1_219,0,530000,CASH ON HAND,account.data_account_type_liquidity,l10nlb_chart_template
+account_accounta_1_220,0,580000,INTERNAL TRANSFERS,account.data_account_type_liquidity,l10nlb_chart_template
+account_accounta_1_221,0,590000,Prov. for Devaluation of Participation Deeds,account.data_account_type_liquidity,l10nlb_chart_template
+account_accounta_1_222,0,601100,Purchase of Goods,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_223,0,601200,Purchase of  Packing Materials for Goods,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_224,0,601800,Charges & Expenses on Goods Purchasing,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_225,0,601900,Discounts Obtained on Purchased Goods,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_226,0,605100,Stock of Goods - Beg. of Period,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_227,0,605200,Stock of Goods - End of Period,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_228,0,611100,Purchase of Raw Materials,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_229,0,611200,Purchase of Manufacturing Consumables,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_230,0,611300,Purchase of  Packing Materials for Products,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_231,0,611800,Chgs & Exp. on R.M & Consum. Purchasing,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_232,0,611900,Disc. Obtained on Purchased R.M & Consum.,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_233,0,615100,Stock of Raw & Other Mat. - Beg. of Period,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_234,0,615200,Stock of Raw & Other Mat. - End of Period,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_235,0,621100,Purchase of Works from Sub-Contractors,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_236,0,621200,Purchase of Services from Sub-Contractors,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_237,0,621910,Disc. Obtained on Purchased Works,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_238,0,621920,Disc. Obtained on Purchased Services,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_239,0,625000,"Leasing, Patent Fees & Royalties",account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_240,0,626110,Assets & Goods Transportation Charges,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_241,0,626120,Personnel Transportation Charges,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_242,0,626150,Post & Telecommunication Charges,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_243,0,626200,Equip. Maintenance & Repair,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_244,0,626310,Rental Fees,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_245,0,626320,Rental Charges (Condominium Charges),account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_246,0,626330,Drinking Water Expenses,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_247,0,626340,Lightening Expenses,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_248,0,626350,Building Maintenance Expenses,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_249,0,626390,Miscllaneous Expense on Buildings,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_250,0,626410,Entertainment Expenses,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_251,0,626420,Travel & Accomodation Expenses,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_252,0,626430,Personnel Meals Expenses,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_253,0,626440,Representation Fees,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_254,0,626510,Interim Staff & Manpower Fees,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_255,0,626520,Commissions Paid to Agents,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_256,0,626530,"Lawyers, Consultants & Experts Fees",account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_257,0,626540,Recrutement Fees,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_258,0,626610,Training Seminars Fees & Charges,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_259,0,626620,Documentation & Subscriptions,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_260,0,626700,RESEARCH & STUDIES FEES,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_261,0,626800,Insurance Premium,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_262,0,626910,Medical Care,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_263,0,626920,Financial Charges (on Bills and other),account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_264,0,626930,Advertising & Publicity,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_265,0,626940,Stationary & Office Supplies,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_266,0,626990,Other Miscellaneous External Services,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_267,0,631100,Staff Salaries,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_268,0,631200,Manpower Wages,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_269,0,631400,Commissions Paid to Personnel,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_270,0,631600,Partners/Managers Remunerations,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_271,0,631700,Directors Remunerations,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_272,0,631910,Personnel Transport Allowances,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_273,0,631920,Personnel Meal Allowances,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_274,0,631930,Personnel Training Allowances,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_275,0,631940,Personnel Medical & Other Insurance,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_276,0,631950,Scholarships to the Personnel & their Child.,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_277,0,631990,Other Sundry Personnel Allowances,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_278,0,635000,SOCIAL SECURITY CHARGES,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_279,0,641000,Income Tax On Salaries & Wages,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_280,0,642000,Municipal Taxes & Duties,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_281,0,643000,Excise Tax,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_282,0,644000,Registration & Notary Fees,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_283,0,645000,Other Taxes & Duties,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_284,0,651100,Deprec.Alloc.of Intangible Fiexed Assets,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_285,0,651101,Amortiz.Alloc.of Business Concern,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_286,0,651110,Amortiz.Alloc.of Formation Expenses,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_287,0,651120,Amortiz.Alloc.of Research & Develop. Expenses,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_288,0,651130,Amortiz.Alloc.of Patents & Trade Marks,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_289,0,651190,Amortiz.Alloc.of Other Intang. Fixed Assets,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_290,0,651200,Deprec.Alloc.of Tangible Fiexed Assets,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_291,0,651210,Deprec.Alloc.of Lands,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_292,0,651230,Deprec.Alloc.of Buildings & Constructions,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_293,0,651240,Deprec.Alloc.of Machinery & Equipment,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_294,0,651250,Deprec.Alloc.of Vehicles,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_295,0,651260,Deprec.Alloc.of Other Tangible Fixed Assets,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_296,0,651500,Deprec.Alloc.of Deferred Charges,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_297,0,655100,Prov.Alloc. for Deval. of Intangible F.Assets,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_298,0,655200,Prov.Alloc. for Deval. of Tangible Fixed Assets,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_299,0,655300,Prov.Alloc. for Deval. of Stocks & In-Process,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_300,0,655410,Prov.Alloc. for Bad & Doubtful Receivables,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_301,0,655420,Prov.Alloc. for Bankrupt Debtors Accounts,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_302,0,655510,Prov.Alloc. for Operating Risks (Conflicts & alike),account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_303,0,655551,Prov.Alloc.of Deferred Charges,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_304,0,655552,Prov.Alloc.of End of Service & Wrkmn Compensation,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_305,0,655553,Prov.Alloc.of Taxes (Other than Income Tax),account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_306,0,661100,Directors Attendance Fees - Out of Profits,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_307,0,661200,Losses on Bad Debts,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_308,0,665000,Company Part in Losses on Joint Ventures,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_309,0,673100,Interest Due on Payables and Loans,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_310,0,673600,Interest Due to Banks & Financial Estab.,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_311,0,673900,Bank Commissions & Other Charges,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_312,0,675100,Exchange Losses on Current Operations,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_313,0,675200,Exchange Losses on Capital Expenditures,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_314,0,676000,Net Charges on Disposal of Securities,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_315,0,679000,Provisions For Deval. Of Financial Assets,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_316,0,679100,Amortiz.Alloc. of Reimbursement Premiums,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_317,0,679200,Prov.Alloc.for Financial Assets Devaluation,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_318,0,679400,Prov.Alloc.for Devaluation of Participations,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_319,0,679500,Prov.Alloc.for Financial Risks & Charges,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_320,0,681100,Book Value of Intang. Assets Disposed of,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_321,0,681200,Book Value of Tangible Assets Disposed of,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_322,0,681500,Book Value of Financial Assets Disposed of,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_323,0,685110,Gifts & Donations ,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_324,0,685130,Fiscal & Penal Fines,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_325,0,685150,Uncollectable Receivables,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_326,0,685160,Other Administrative Operations,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_327,0,685500,Charges on CapitalOperations,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_328,0,688000, Charges On Extra-Ordinary Events,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_329,0,689000,Non Oper'Tg Depreciations & Provisions,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_330,0,689100,Alloc. for Extra-ordinary Deprec.of F.Assets,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_331,0,689200,Prov.Alloc. for Exceptional Depreciations,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_332,0,689500,Prov.Alloc. for Non-Operat'g Risks & Charges,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_333,0,690100,Income Tax on Net Operating Profits,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_334,0,690200,Tax on Profits from F. Assets Disposal or Revaluation,account.data_account_type_expenses,l10nlb_chart_template
+account_accounta_1_335,0,701000,Sales of Goods,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_336,0,709000,Discounts/Allowances/Returned Goods,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_337,0,711100,Sales of Finished Products,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_338,0,711200,Sales of Semi-Finished Products,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_339,0,711300,Sales of Production Scrap,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_340,0,712000,Sales of Works,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_341,0,713000,Sales of Services,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_342,0,719100,Discounts Granted on Sales of Products,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_343,0,719200,Discounts Granted on Sales of Works,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_344,0,719300,Discounts Granted on Sales of Services,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_345,0,721100,Stock Variation of Products in Process,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_346,0,721200,Stock Variation of Works in Progress,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_347,0,722500,Stock Variation of Studies in Progress,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_348,0,722600,Stock Variation of Services in Progress,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_349,0,725100,Stock Variation of Semi-Finished Products,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_350,0,725500,Stock Variation of Finished Products,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_351,0,725800,Stock Variation of Production Scrap,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_352,0,731000,Production of Intangible Fixed Assets,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_353,0,732000,Production of Tangible Fixed Assets,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_354,0,741000,Operating Subsidies for Goods,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_355,0,742000,Operating Subsidies for Production,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_356,0,752100,Reversal of Deval.Prov. of Intang.Fixed Assets,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_357,0,752200,Reversal of Deval.Prov. of Tang.Fixed Assets,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_358,0,753300,Reversal of Deval.Prov. of Stocks,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_359,0,753410,Reversal of Non-Deduct.Deval.Prov. of Debts,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_360,0,753420,Reversal of Deval.Prov. of Losses on Debts Losses,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_361,0,755100,Reversal of Deval.Prov. for Risks (Conflicts & alike),account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_362,0,755210,Reversal of Prov. for Deferred Charges,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_363,0,755220,Reversal of Prov. for End of Service Dues,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_364,0,755230,Reversal of Prov. for Taxes (Other than Income Tax),account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_365,0,761100,Patents Royalties Income,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_366,0,761200,Rental of Buildings not used by  the Business,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_367,0,761300,Board Meetings Attendance Fees Received,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_368,0,761500,Other Sundry Operating Income,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_369,0,761900,Operating Charges Transferred to Other Accounts,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_370,0,765100,Net Transfers of Allocated Charges,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_371,0,765500,Net Attributions of Income,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_372,0,771000,Revenues of Equity Participations,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_373,0,772000,Revenues of Securities and Receivables,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_374,0,773000,Interests and Similar Revenues Earned ,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_375,0,775100,Exchange Profits on Current Operations,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_376,0,775500,Exchange Profits on Capital Transactions,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_377,0,778100,Net Income on Disposal of Participation Deeds,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_378,0,778900,Financial Charges Transferred to Other Accounts,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_379,0,779300,Reversal of Deval.Prov. Of Finan. F. Assets,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_380,0,779400,Reversal of Deval.Prov. Of Participations Deeds,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_381,0,779500,Reversal of Prov. for Financial Risks,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_382,0,781100,Income from Disposal of Intang. F. Assets,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_383,0,781200,Income from Disposal of Tang. F. Assets,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_384,0,781500,Income from Disposal of Financ. F. Assets,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_385,0,781900,Fixed Assets Disposal Charges,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_386,0,782000,Investment Subsidies Transferred to Results,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_387,0,788100,Extra-ordinary Operating Revenues,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_388,0,788800,Other Income on Extar-ordinary Transactions,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_389,0,788900,Sundry Extra-ordinary Charges Transferred,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_390,0,789100,Reversal of Prov. for Non-Oper. Depreciations,account.data_account_type_revenue,l10nlb_chart_template
+account_accounta_1_391,0,789500,Reversal of Prov. for Non-Oper. Risks & ChargesPrices Fall,account.data_account_type_revenue,l10nlb_chart_template

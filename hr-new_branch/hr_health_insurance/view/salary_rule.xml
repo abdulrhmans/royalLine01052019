@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		
+		<record id="hr_hi_rule" model="hr.salary.rule">
+			<field name="name">Health Insurance</field>
+			<field name="sequence" eval="108" />
+			<field name="code">HIDED</field>
+			<field name="category_id" ref="hr_payroll.DED" />
+			<field name="condition_select">none</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute"><![CDATA[
+result = (employee.employee_health_amount+employee.dependent_health_amount)/12.0
+    ]]></field>
+		</record>
+		
+	</data>
+</odoo>

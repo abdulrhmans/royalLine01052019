@@ -1,0 +1,28 @@
+<openerp>
+	<data>
+
+		<record id="send_to_bank_view" model="ir.ui.view">
+			<field name="name">send.check.bank.form</field>
+			<field name="model">send.check.bank</field>
+			<field name="arch" type="xml">
+				<form string="Send To bank">
+					<label string="Are you sure you want to send selected Cheques to bank ?" />
+					<group>
+						<field name="send_bank_date" />
+					</group>
+					<footer>
+						<button string="Send" name="send_bank" type="object"
+							default_focus="1" class="oe_highlight" />
+						or
+						<button string="Cancel" class="oe_link" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<act_window id="action_send_to_bank" multi="True" groups="account.group_account_user"
+			key2="client_action_multi" name="Send To bank" res_model="send.check.bank"
+			src_model="account.payment" view_mode="form" target="new" view_type="form" />
+
+	</data>
+</openerp>

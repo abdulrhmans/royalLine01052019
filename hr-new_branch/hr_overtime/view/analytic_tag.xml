@@ -1,0 +1,9 @@
+<openerp>
+	<data noupdate="1">
+	
+		<record id="overtime_tag" model="account.analytic.tag">
+			<field name="name">Overtime</field>
+		</record>
+
+	</data>
+</openerp>

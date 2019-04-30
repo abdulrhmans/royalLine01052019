@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<template id="payment_receipt_inherit" inherit_id="sw_account_receipt_payment.payment_receipt">
+			<xpath expr="//tr[@id='cus_ref']" position="replace">
+				<t t-if="voucher.is_check">
+					<tr id="cus_ref">
+						<td width="50%">
+							<t t-if="voucher.type in ['receipt']">
+								Name :
+								<span t-esc="getCustomerName(voucher,voucher.partner_id)['name']" />
+							</t>
+							<t t-if="voucher.type in ['payment']">
+								Name :
+								<t t-if="voucher.partner_id">
+									<span t-esc="getCustomerName(voucher,voucher.partner_id)['name']" />
+								</t>
+								<t t-if="not voucher.partner_id">
+									<span t-esc="voucher.partner_name" />
+								</t>
+							</t>
+						</td>
+						<td width="50%">
+							Due Date :
+							<span t-field="voucher.due_date" />
+						</td>
+					</tr>
+					<tr height="6px"></tr>
+					<tr id="cus_ref">
+						<td width="50%">
+							Reference :
+							<span t-field="voucher.reference" />
+						</td>
+						<td width="50%">
+							Check Ref :
+							<span t-field="voucher.check_ref" />
+						</td>
+					</tr>
+				</t>
+				<t t-if="not voucher.is_check">
+					<tr id="cus_ref">
+						<td width="50%">
+							<t t-if="voucher.type in ['receipt']">
+								Name :
+								<span t-esc="getCustomerName(voucher,voucher.partner_id)['name']" />
+							</t>
+							<t t-if="voucher.type in ['payment']">
+								Name :
+								<t t-if="voucher.partner_id">
+									<span t-esc="getCustomerName(voucher,voucher.partner_id)['name']" />
+								</t>
+								<t t-if="not voucher.partner_id">
+									<span t-esc="voucher.partner_name" />
+								</t>
+							</t>
+						</td>
+						<td width="50%">
+							Reference :
+							<span t-field="voucher.reference" />
+						</td>
+					</tr>
+				</t>
+				
+			</xpath>
+		</template>
+	</data>
+</openerp>

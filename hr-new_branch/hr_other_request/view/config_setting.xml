@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record id="res_config_settings_view_form" model="ir.ui.view">
+			<field name="name">res.config.settings</field>
+			<field name="model">res.config.settings</field>
+			<field name="inherit_id"
+				ref="hr.res_config_settings_view_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//div[hasclass('app_settings_block')]"
+					position="inside">
+					
+					<h2>Other Request</h2>
+					<div class="row mt16 o_settings_container"
+						id="hr_payroll_orther_request">
+						<div class="col-md-6 col-xs-12 o_setting_box">
+							<div class="o_setting_left_pane">
+							</div>
+							<div class="o_setting_right_pane">
+								<label for="users_to_notify_ot_r_ids" />
+								<field name="users_to_notify_ot_r_ids" widget="many2many_tags"
+									options="{'no_create': True,'no_quick_create': True,'no_open': True, 'no_create_edit': True}" />
+								<div class="text-muted">
+								</div>
+							</div>
+						</div>
+					</div>
+				</xpath>
+			</field>
+		</record>
+	</data>
+</odoo>

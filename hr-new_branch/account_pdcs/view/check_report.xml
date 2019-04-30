@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<template id="check">
+			<t t-call="sw_account_check.empty_layout">
+				<div class="page" style="font-size: 21px !important">
+					<t t-set="check" t-value="docs[0]" />
+					<t t-set="error" t-value="check_all(check)" />
+					<div style="height:60px;">
+					</div>
+					<div style="padding-left: 1px !important">
+						<span t-field="check.due_date" style="font-size: 17px !important" />
+					</div>
+					<div style="height:28px;">
+					</div>
+					<div class="text-right" style="padding-right: 29px;">
+						<t t-if="check.partner_name">
+							<span t-field="check.partner_name" />
+						</t>
+						<t t-if="not check.partner_name">
+							<t t-if="check.partner_id">
+								<span t-field="check.partner_id.name" />
+							</t>
+						</t>
+					</div>
+					<div style="height:13px;">
+					</div>
+					<t t-set="amount" t-value="get_amount(check.amount)" />
+					<table style="max-width:161mm;min-width:161mm" width="161mm"
+						height="60px">
+						<tr class="text-right" style="">
+							<td class="text-left" width="14mm" style="max-width:14mm;min-width:14mm">
+
+							</td>
+							<td class="text-right" width="93mm" style="max-width:93mm;min-width:93mm">
+								<span style="line-height:25px" t-field="check.amount_to_text" />
+								<br />
+								<span class="text-right" style="line-height:27px;font-size: 18px !important"
+									t-field="check.check_note" />
+							</td>
+							<td class="text-left" width="30mm" style="max-width:30mm;min-width:30mm;">
+							</td>
+							<td class="text-left" width="34mm"
+								style="padding-top:15px;max-width:34mm;min-width:34mm;vertical-align: middle;">
+								<span t-esc="amount[0]" />
+							</td>
+							<td class="text-left" width="10mm"
+								style="padding-top:15px;max-width:10mm;min-width:10mm;vertical-align: middle;">
+								<span t-esc="amount[1]" />
+							</td>
+						</tr>
+					</table>
+				</div>
+			</t>
+		</template>
+
+	</data>
+</openerp>

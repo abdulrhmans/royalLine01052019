@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+			
+		<record model="ir.ui.view" id="hr_employee_base_view">
+			<field name="name">hr.employee.base.view</field>
+			<field name="model">hr.employee</field>
+			<field name="inherit_id" ref="hr.view_employee_form" />
+			<field name="arch" type="xml">
+				<notebook position="inside">
+					<page string="Accounting" id="account_group" groups="account.group_account_user">
+					</page>
+					<page string="Attendance" id="att_group" groups="hr.group_hr_user">
+						<group string="Working Days/Hours">
+							<field name="month_days" />
+							<field name="year_days" />
+							<field name="work_hour" />
+						</group>
+					</page>
+				</notebook>
+				<field name="marital" position="after">
+					<field name="religion" />
+				</field>
+				<field name="passport_id" position="after">
+					<field name="bank_id"
+						options="{'no_create': True,'no_quick_create': True, 'no_create_edit': True,'no_open': True}" />
+					<field name="branch_id" domain="[('bank_id','=', bank_id)]"
+						options="{'no_create': True,'no_quick_create': True, 'no_create_edit': True,'no_open': True}" />
+					<field name="iban" />
+				</field>
+	            <page name="personal_information" position="inside">
+	            	<group>
+	            		<separator string="Dependent Info"/>
+		                <field name="dependent_lines" nolabel="1" colspan="4">
+							<tree string="Dependent Information" editable="bottom">
+								<field name="name" />
+								<field name="relative_type" />
+								<field name="birthdate" />
+								<field name="age" />
+								<field name="ident_number" />
+								<field name="health_amount" />
+							</tree>
+						</field>
+						<field name="contract_id" options="{'no_create': True,'no_quick_create': True, 'no_create_edit': True,'no_open': True}"/>
+					</group>
+	            </page>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_contract_base_view">
+			<field name="name">hr.contract.base.view</field>
+			<field name="model">hr.contract</field>
+			<field name="inherit_id" ref="hr_contract.hr_contract_view_form" />
+			<field name="arch" type="xml">
+				<field name="job_id" position="after">
+					<field name="realy_vacation"   invisible="1"/>
+				</field>
+				<field name="date_end" position="replace">
+					<field name="date_end" class="oe_inline"
+						attrs="{'required':[('out_state','!=',False)]}" />
+				</field>
+				<group name="duration_group" position="after">
+					<group string="Extra Information">
+						<label for="is_other" string="Other Allowance" />
+						<div>
+							<field name="is_other" class="oe_inline" />
+							-
+							<field name="other_amount" attrs="{'readonly':[('is_other','=',False)]}"
+								class="oe_inline" />
+						</div>
+						<field name="out_state" attrs="{'required':[('date_end','!=',False)]}" />
+						<field name="term_reason"
+							attrs="{'invisible':[('out_state','=',False)],'required':[('out_state','!=',False)] }" />
+						<field name="work_duration" invisible="0" readonly="1" />
+						<field name="work_duration_now" invisible="0" readonly="1" />
+					</group>
+				</group>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_hr_payslip_form">
+			<field name="name">hr.payslip.form.view</field>
+			<field name="model">hr.payslip</field>
+			<field name="inherit_id" ref="hr_payroll.view_hr_payslip_form" />
+			<field name="arch" type="xml">
+				<xpath
+					expr="//field[@name='worked_days_line_ids']//tree//field[@name='sequence']"
+					position="after">
+					<field name="leave_type_id" invisible="True" />
+				</xpath>
+				<xpath expr="//field[@name='contract_id']" position="after">
+					<field name="number_of_houres"/>
+					<field name="actuall_days"/>
+				</xpath>
+				<xpath expr="//sheet" position="after">
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </xpath>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_contract_empl_view">
+			<field name="name">hr.employee.empl.view</field>
+			<field name="model">hr.employee</field>
+			<field name="inherit_id" ref="hr_contract.hr_hr_employee_view_form2" />
+			<field name="arch" type="xml">
+				<field name="bank_account_id" position="replace">
+					<field name="bank_account_id" invisible="1" />
+				</field>
+			</field>
+		</record>
+		
+		<record id="view_hr_payslip_run_form_chatter" model="ir.ui.view">
+            <field name="name">hr.payslip.run.form.chatter</field>
+            <field name="model">hr.payslip.run</field>
+            <field name="inherit_id" ref="hr_payroll.hr_payslip_run_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="after">
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+        
+	</data>
+</openerp>

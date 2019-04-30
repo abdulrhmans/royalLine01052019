@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="view_hr_payslip_form" model="ir.ui.view">
+			<field name="name">hr.payslip</field>
+			<field name="model">hr.payslip</field>
+			<field name="inherit_id" ref="hr_payroll.view_hr_payslip_form" />
+			<field name="arch" type="xml">
+				<xpath
+					expr="//notebook//page[1]//field[@name='input_line_ids']//tree"
+					position='inside'>
+					<field name="eosb_id" readonly="1" force_save="1" />
+
+				</xpath>
+
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_eosb_calac_tree_view">
+			<field name="name">hr_eosb_calac_tree_view</field>
+			<field name="model">hr.eosb.calac</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="End Of Service Benefits Calculation"
+					colors="gray: state=='cancel'; blue: state == 'draft'; black: state == 'approved'">
+					<field name="name" />
+					<field name="employee_id" />
+					<field name="balance" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="hr_eosb_calac_form_view">
+			<field name="name">hr_eosb_calac_form_view</field>
+			<field name="model">hr.eosb.calac</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="End Of Service Benefits Calculation">
+					<header>
+						<button string="Approve" name="approve_eosb" states="draft"
+							type="object" class="oe_highlight" groups="hr.group_hr_manager" />
+						<button string="Cancel" name="cancel_eosb"
+							states="approved" type="object" class="oe_highlight"
+							groups="hr.group_hr_manager" />
+						<button string="Set to draft" name="draft_eosb"
+							states="cancel" type="object" class="oe_highlight"
+							groups="hr.group_hr_manager" />
+						<button string="Recalculate" name="onchange_employee"
+							states="draft" type="object" class="oe_highlight"
+							groups="hr.group_hr_manager,hr.group_hr_user" />
+						<field name="state" widget="statusbar"
+							statusbar_visible="draft,approved" />
+					</header>
+					<sheet>
+						<div class="oe_button_box">
+
+							<button
+								attrs="{'invisible':[('payment_method','!=','receipt')]}"
+								name="open_payment" string="Payment" class="oe_stat_button"
+								icon="fa-money" type="object">
+
+							</button>
+						</div>
+						<group col="3">
+							<div>
+								<h1>
+									<field name="name" />
+								</h1>
+							</div>
+						</group>
+						<group>
+							<group>
+								<field name="employee_id"
+									attrs="{'readonly':[('state','in',['cancel','approved'])]}"
+									options="{'no_create': True,'no_quick_create': True,'no_open': True, 'no_create_edit': True}" />
+								<field name="contract_start_date" />
+								<field name="contract_type" />
+								<field name="country_id" />
+								<field name="date"
+									attrs="{'readonly':[('state','in',['cancel','approved'])]}" />
+							</group>
+							<group>
+								<field name="contract_id"
+									domain="[('date_end', '!=', False),('term_reason_id', '!=', False), ('appeared_in_eosb', '=', False),('employee_id', '=', employee_id)]"
+									attrs="{'readonly':[('state','in',['cancel','approved'])]}"
+									options="{'no_create': True,'no_quick_create': True,'no_open': True, 'no_create_edit': True}" />
+								<field name="contract_end_date" />
+								<field name="work_duration_char" />
+								<field name="rule_id" force_save="1" />
+								<field name="payment_method"
+									attrs="{'readonly':[('state','!=','draft')]}" />
+							</group>
+						</group>
+						<notebook>
+							<page string="Deductions">
+								<field name="deduction_lines"
+									attrs="{'readonly':[('state','in',['cancel','approved'])]}">
+									<tree editable="bottom">
+										<field name="name" />
+										<field name="type" />
+										<field name="amount" />
+									</tree>
+									<form>
+										<group>
+											<group>
+												<field name="name" />
+												<field name="type" />
+												<field name="amount" />
+											</group>
+										</group>
+									</form>
+								</field>
+							</page>
+						</notebook>
+						<group>
+							<field name="eos_original_amount" force_save="1" />
+							<field name="deductions_amount" />
+							<field name="balance" />
+						</group>
+						<field name="note" force_save="1" nolabel="1"
+							attrs="{'invisible':[('rule_id','!=',False)]}" />
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers"
+							groups="hr.group_hr_user" />
+						<field name="message_ids" widget="mail_thread" />
+					</div>
+				</form>
+			</field>
+		</record>
+
+		<record id="eosb_calac_search_view" model="ir.ui.view">
+			<field name="name">eosb_calac_search_view</field>
+			<field name="model">hr.eosb.calac</field>
+			<field name="arch" type="xml">
+				<search string="EoS Calculation">
+					<field name="employee_id" />
+					<field name="name" />
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window"
+			id="action_eos_calc_action">
+			<field name="name">End Of Service Benefits Calculation</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.eosb.calac</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="eosb_calac_search_view" />
+			<field name="view_id" ref="hr_eosb_calac_tree_view" />
+		</record>
+
+		<menuitem id="hr_eos_calc_menu" name="EoS Calculation"
+			groups="hr.group_hr_user,hr.group_hr_manager"
+			parent="hr_payroll.menu_hr_payroll_root" sequence="99"
+			action="action_eos_calc_action" />
+
+
+
+		<record model="ir.ui.view" id="hr_contract_eosb_view">
+			<field name="name">hr.contract.base.view</field>
+			<field name="model">hr.contract</field>
+			<field name="inherit_id"
+				ref="hr_contract.hr_contract_view_form" />
+			<field name="arch" type="xml">
+				<field name="notes" position="after">
+					<field name="has_eosb" invisible="1" />
+				</field>
+			</field>
+		</record>
+
+
+
+		<record model="ir.ui.view" id="hr_contract_base_view">
+			<field name="name">hr.contract.base.view</field>
+			<field name="model">hr.contract</field>
+			<field name="inherit_id"
+				ref="hr_contract.hr_contract_view_form" />
+			<field name="arch" type="xml">
+				<group name="duration_group" position="after">
+					<group string="Extra Information">
+						<field name="term_reason_id"
+							options="{'no_create': True,'no_quick_create': True,'no_open': True, 'no_create_edit': True}" />
+						<field name="out_state"
+							attrs="{'invisible':[('term_reason_id','=',False)]}" />
+						<field name="work_duration_char" />
+						<field name="work_duration_now_char" />
+					</group>
+				</group>
+
+				<xpath
+					expr="//notebook/page[2]/group[1]/group[1]/field[@name='date_start']"
+					position="before">
+					<field name="contract_type" />
+				</xpath>
+
+				<xpath
+					expr="//notebook/page[2]/group[1]/group[1]//field[@name='date_end']"
+					position="attributes">
+					<attribute name="attrs">{'required':[('term_reason_id', '!=',
+						False)]}
+					</attribute>
+				</xpath>
+
+			</field>
+		</record>
+
+
+
+
+
+		<record model="ir.ui.view" id="view_employee_form">
+			<field name="name">hr.employee</field>
+			<field name="model">hr.employee</field>
+			<field name="inherit_id" ref="hr.view_employee_form" />
+			<field name="arch" type="xml">
+
+				<field name='country_id' position='attributes'>
+					<attribute name="required">1</attribute>
+				</field>
+				<field name='gender' position='attributes'>
+					<attribute name="required">1</attribute>
+				</field>
+
+
+				<xpath expr="//button[@name='toggle_active']"
+					position="before">
+					<button name="open_eosb" string="EOSB"
+						class="oe_stat_button" icon="fa-book" type="object">
+
+					</button>
+				</xpath>
+
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="hr_eosb_rule_tree_view">
+			<field name="name">hr.eosb.rule</field>
+			<field name="model">hr.eosb.rule</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+					<field name="reason_id" />
+					<field name="country_id" />
+					<field name="contract_type" />
+				</tree>
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="hr_eosb_rule_form_view">
+			<field name="name">hr.eosb.rule</field>
+			<field name="model">hr.eosb.rule</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<group>
+								<h1>
+									<field name="name" placeholder="Name of the Rule"
+										help="Name of the Rule" />
+								</h1>
+							</group>
+						</group>
+						<group>
+							<group>
+								<field name="reason_id"
+									options="{'no_create': True,'no_quick_create': True,'no_open': True, 'no_create_edit': True}" />
+								<field name="country_id"
+									options="{'no_create': True,'no_quick_create': True,'no_open': True, 'no_create_edit': True}" />
+								<field name="contract_type" />
+							</group>
+							<group>
+								<field name="tiers" />
+							</group>
+							<field name="eosb_rule_line_ids">
+								<tree editable="bottom">
+									<field name="from_year" />
+									<field name="to_year" />
+									<field name="amount" />
+								</tree>
+								<form>
+									<group>
+										<group>
+											<field name="from_year" />
+											<field name="to_year" />
+											<field name="amount" />
+										</group>
+									</group>
+								</form>
+							</field>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+
+		<record id="eosb_rule_search_view" model="ir.ui.view">
+			<field name="name">hr.eosb.rule</field>
+			<field name="model">hr.eosb.rule</field>
+			<field name="arch" type="xml">
+				<search string="EOSB Rule">
+					<field name="name" />
+					<field name="reason_id"
+						filter_domain="[('name','ilike',self)]" />
+					<field name="country_id"
+						filter_domain="[('name','ilike',self)]" />
+
+					<filter name="country" string="Rule Without Country"
+						domain="[('country_id','=',False)]" />
+					<group expand="0" string="Group By">
+						<filter string="Reason" domain="[]"
+							context="{'group_by':'reason_id'}" />
+						<filter string="Country" domain="[]"
+							context="{'group_by':'country_id'}" />
+						<filter string="Gender" domain="[]"
+							context="{'group_by':'gender'}" />
+						<filter string="Tiers" domain="[]"
+							context="{'group_by':'tiers'}" />
+						<filter string="Contract Type" domain="[]"
+							context="{'group_by':'contract_type'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+
+		<record model="ir.actions.act_window"
+			id="action_eos_rule_action">
+			<field name="name">End Of Service Benefits Rules</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.eosb.rule</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+
+
+
+		<record model="ir.ui.view" id="hr_eosb_reason_tree_view">
+			<field name="name">hr.eosb.reason</field>
+			<field name="model">hr.eosb.reason</field>
+			<field name="arch" type="xml">
+				<tree editable='top'>
+					<field name="name" />
+					<field name="out_state" />
+					<field name="for_female" />
+				</tree>
+			</field>
+		</record>
+
+
+		<record id="eosb_reason_search_view" model="ir.ui.view">
+			<field name="name">hr.eosb.reason</field>
+			<field name="model">hr.eosb.reason</field>
+			<field name="arch" type="xml">
+				<search string="EOSB Rule">
+					<field name="name" />
+					<group expand="0" string="Group By">
+						<filter string="End of service Status" domain="[]"
+							context="{'group_by':'out_state'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+
+		<record model="ir.actions.act_window"
+			id="action_eos_reason_action">
+			<field name="name">End Of Service Benefits Reasons</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.eosb.reason</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+
+		<menuitem id="hr_eosb_conf_menu" name="EOSB"
+			groups="hr.group_hr_manager"
+			parent="hr_payroll.menu_hr_payroll_configuration" sequence="99" />
+
+		<menuitem id="hr_eosb_rule_menu" name="EOSB Rule"
+			groups="hr.group_hr_manager" parent="hr_eosb_conf_menu" sequence="99"
+			action="action_eos_rule_action" />
+
+
+		<menuitem id="hr_eosb_reason_menu" name="EOSB Reasons"
+			groups="hr.group_hr_manager" parent="hr_eosb_conf_menu" sequence="99"
+			action="action_eos_reason_action" />
+
+	</data>
+</odoo>

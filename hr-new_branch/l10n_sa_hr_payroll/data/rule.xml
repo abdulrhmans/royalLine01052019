@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        
+        
+        
+        <record id="gosi_deduction_rule" model="hr.salary.rule">
+            <field name="name">GOSI Deduction</field>
+            <field name="sequence" eval="115"/>
+            <field name="code">GOSI</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result = employee.country_id.code=="SA"</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+result = (contract.housing + contract.wage) * 0.10
+
+			</field>
+        </record>
+        
+        
+        <record id="gosi_contrib_rule" model="hr.salary.rule">
+            <field name="name">GOSI Contribution</field>
+            <field name="sequence" eval="116"/>
+            <field name="code">GOSIC</field>
+            <field name="category_id" ref="hr_payroll.COMP"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+if employee.country_id.code=="SA":
+	result = (contract.housing + contract.wage) * 0.12
+else:
+	result = (contract.housing + contract.wage) * 0.02
+          
+            </field>
+        </record>
+        
+        
+        
+        <record id="housing_allowance_rule" model="hr.salary.rule">
+            <field name="name">Housing Allowance</field>
+            <field name="sequence" eval="2"/>
+            <field name="code">HA</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+           <field name="condition_select">python</field>
+            <field name="condition_python">result = contract.housing > 0.0</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">
+result = contract.housing
+          
+            </field>
+        </record>
+
+
+
+	<record id="housing_deduction_rule" model="hr.salary.rule">
+		<field name="name">Housing Deduction</field>
+		<field name="sequence" eval="2" />
+		<field name="code">HD</field>
+		<field name="category_id" ref="hr_payroll.DED" />
+		<field name="condition_select">python</field>
+		<field name="condition_python"><![CDATA[
+if  contract.housing > 0.0:
+	if employee.check_get_paid_unpaid_days_exist()[0]:
+		if employee.get_paid_unpaid_hours(worked_days)[0][0] < payslip.number_of_houres:
+			result = True
+	else:
+		result = worked_days.WORK100 and worked_days.WORK100.number_of_hours < payslip.number_of_houres
+					 
+
+]]></field>
+		<field name="amount_select">code</field>
+		<field name="amount_python_compute"><![CDATA[
+result = 0.0		
+if employee.check_get_paid_unpaid_days_exist()[0]:
+	if employee.get_paid_unpaid_hours(worked_days)[0][0] < payslip.number_of_houres:
+		result = (contract.housing/payslip.number_of_houres)*(payslip.number_of_houres - employee.get_paid_unpaid_hours(worked_days)[0][0])
+else:
+	if worked_days.WORK100 and worked_days.WORK100.number_of_hours < payslip.number_of_houres:
+		result = (contract.housing/payslip.number_of_houres) * (payslip.number_of_houres -  worked_days.WORK100.number_of_hours)
+		]]></field>
+	</record>
+        
+    
+        
+    </data>
+</odoo>

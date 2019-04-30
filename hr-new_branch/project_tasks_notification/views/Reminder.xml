@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data noupdate="1">
+
+		<!-- scheduled action -->
+		<record id="send_automatic_email_BL" model="ir.cron">
+			  <field name="name">Send Tasks Remainder</field>
+		      <field name="model_id" ref="project.model_project_project"/>
+		      <field name="state">code</field>
+		      <field name="code">model.send_val()</field>
+		      <field name="active" eval="True"/>
+		      <field name="user_id" ref="base.user_root"/>
+		      <field name="interval_number">4</field>
+		      <field name="interval_type">hours</field>
+		      <field name="numbercall">-1</field>
+		      <field name="doall" eval="False"/>
+      
+		</record>
+
+
+	</data>
+</openerp>

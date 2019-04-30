@@ -1,0 +1,27 @@
+<odoo>
+	<data>
+
+		<record id="add_employee_view" model="ir.ui.view">
+			<field name="name">add.employee</field>
+			<field name="model">add.employee</field>
+			<field name="arch" type="xml">
+				<form >
+					<group>
+						<field nolabel="1" name="employee_ids"></field>
+					</group>
+					<footer>
+						<button string="add" name="add_employee" type="object"
+							class="oe_highlight" />
+						or
+						<button string="Cancel" class="oe_link" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<act_window id="action_add_employee" multi="True"
+			key2="client_action_multi" name="Add Employee" res_model="add.employee"
+			view_mode="form" target="new" view_type="form" />
+
+	</data>
+</odoo>

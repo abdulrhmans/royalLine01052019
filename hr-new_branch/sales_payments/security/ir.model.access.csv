@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_payment_typ,account.payment.method,account.model_account_payment_method,sales_team.group_sale_salesman,1,1,1,0
+access_payment,account.payment,account.model_account_payment,sales_team.group_sale_salesman,1,1,1,0
+access_move,account.move,account.model_account_move,sales_team.group_sale_salesman,1,1,1,0
+access_move_line,account.move.line,account.model_account_move_line,sales_team.group_sale_salesman,1,1,1,0
+access_acc_type,account.account.type,account.model_account_account_type,sales_team.group_sale_salesman,1,1,1,0
+access_partial,account.partial.reconcile,account.model_account_partial_reconcile,sales_team.group_sale_salesman,1,1,1,0

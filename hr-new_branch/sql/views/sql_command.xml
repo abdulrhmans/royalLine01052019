@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		
+		<record model="ir.ui.view" id="sql_form_view">
+			<field name="name">sql.commands.form</field>
+			<field name="model">sql.commands</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="SQL">
+					<header>
+						<button string="Execute" name="start_process" states="draft" type="object" class="oe_highlight"/>
+						<field name="state" widget="statusbar" statusbar_visible="draft,done" />
+					</header>
+					<sheet>
+						<group col="2" colspan="2">
+							<field name="name" attrs="{'readonly':[('state','=','done')]}"/>
+						</group>
+						<group col="4" colspan="2">
+							<field name="start_date"/>
+							<field name="duration" widget="float_time" string="Duration"/>
+						</group>
+						<group col="2" colspan="2">
+							<field name="command" attrs="{'readonly':[('state','=','done')]}"/>
+	                        <field name="sql_password" password="True" invisible="1"/>
+						</group>
+						<notebook colspan="4">
+							<page string='Result' name='result_sql'>
+                                <field name="command_output" nolabel="1" colspan="4"/>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="sql_tree_view">
+			<field name="name">sql.commands.tree</field>
+			<field name="model">sql.commands</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="SQL" colors="blue: state == 'draft'; black: state == 'done'">
+					<field name="name" />
+					<field name="command" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+
+	    <record model="ir.ui.view" id="sql_search_view">
+            <field name="name">sql.commands.search</field>
+            <field name="model">sql.commands</field>
+	        <field name="arch" type="xml">
+	            <search string="Search SQL">
+	                <field name="name" string="Query"/>
+					<field name="state" string="State"/>
+                    <filter string="Draft" domain="[('state', '=', 'draft')]" name="sql_commands_draft_state"/>
+                    <separator/>
+	                <filter string="Done" domain="[('state','=', 'done')]" name="sql_commands_done_state"/>
+                    <separator/>
+	                <group expand="0" string="Group By">
+	                    <filter string="State" domain="[]" context="{'group_by':'state'}"/>
+	                </group>
+	            </search>
+	        </field>
+	    </record>
+
+		<record model="ir.actions.act_window" id="action_sql_tree_view">
+			<field name="name">SQL</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">sql.commands</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_id" ref="sql_tree_view" />
+			<field name="search_view_id" ref="sql_search_view"/>
+		</record>
+
+		<menuitem id="sql_command_menu" name="Execute SQL" action="action_sql_tree_view"  parent="sql.db_manager" sequence="1" />
+
+	</data>
+</odoo>

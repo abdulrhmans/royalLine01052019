@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record model="ir.ui.view" id="login_user_detail_form_view">
+			<field name="name">Login Trials</field>
+			<field name="model">login.detail</field>
+			<field name="arch" type="xml">
+				<form>
+					<header>
+						<field name="login_state" widget="statusbar"
+							statusbar_visible="success,fail" />
+					</header>
+					<sheet>
+						<group col="2" colspan="2">
+							<field name="name" readonly="1" />
+						</group>
+						<group col="4" colspan="2">
+							<field name="date_time" readonly="1" />
+							<field name="ip_address" readonly="1" />
+							<field name="database" readonly="1" />
+							<field name="location_id" password="True" readonly="1" />
+							<field name="password" readonly="1" password="True"
+								string="Password" />
+							<button name="show_password" string="⇒ View Password"
+								type="object" class="oe_link"
+								groups="login_attempts.group_view_logins_admin" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="login_user_detail_tree_view">
+			<field name="name">Login Trials</field>
+			<field name="model">login.detail</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name" />
+					<field name="date_time" />
+					<field name="ip_address" />
+					<field name="user_id" invisible="1" />
+					<field name="database" />
+					<field name="password" password="True" />
+					<field name="login_state" />
+					<field name="location_id" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="login_detail_users_search">
+			<field name="name">Login Trials Search View</field>
+			<field name="model">login.detail</field>
+			<field name="arch" type="xml">
+				<search string="Search Login Trials">
+					<field name="name" string="Username" />
+					<field name="login_state" string="State" />
+					<filter string="Failed"
+						domain="[('login_state', '=', 'fail')]"
+						name="my_sale_orders_fail_state" />
+					<separator />
+					<filter string="Success"
+						domain="[('login_state','=','success')]"
+						name="my_sale_orders_success_state" />
+					<separator />
+					<group expand="0" string="Group By">
+						<filter string="Name" domain="[]"
+							context="{'group_by':'user_id'}" />
+						<filter string="Location" domain="[]"
+							context="{'group_by':'location_id'}" />
+						<filter string="Date" domain="[]"
+							context="{'group_by':'date_time'}" />
+						<filter string="State" domain="[]"
+							context="{'group_by':'login_state'}" />
+						<filter string="Database" domain="[]"
+							context="{'group_by':'database'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window"
+			id="login_user_detail_action_window">
+			<field name="name">Login Trials</field>
+			<field name="res_model">login.detail</field>
+			<field name="view_mode">tree,form</field>
+			<field name="view_type">form</field>
+			<field name="view_id" ref="login_user_detail_tree_view" />
+			<field name="search_view_id" ref="login_detail_users_search" />
+		</record>
+
+		<menuitem name="Login Trials" id="login_attempts.menu_1_list"
+			parent="base.menu_users" action="login_user_detail_action_window"
+			groups="" />
+
+		<record id="login_location_users_address_tree"
+			model="ir.ui.view">
+			<field name="name">login.location.tree</field>
+			<field name="model">login.location</field>
+			<field name="arch" type="xml">
+				<tree string="Location Address">
+					<field name="name" />
+					<field name="ip_address" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="login_location_users_address_form"
+			model="ir.ui.view">
+			<field name="name">login.location.form</field>
+			<field name="model">login.location</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<field name="name" />
+							<field name="ip_address" />
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record id="action_login_location_users"
+			model="ir.actions.act_window">
+			<field name="name">Location</field>
+			<field name="res_model">login.location</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem action="action_login_location_users"
+			id="login_attempts.menu_location_address" parent="base.menu_users"
+			groups="" />
+
+		<record id="res_users_form" model="ir.ui.view">
+			<field name="name">res.users.form</field>
+			<field name="model">res.users</field>
+			<field name="inherit_id" ref="base.view_users_form" />
+			<field name="arch" type="xml">
+				<data>
+					<xpath expr="//div[hasclass('oe_title')]" position="inside">
+						<label for="login_locked" string="Blocked"/>
+						<field name="login_locked" readonly="1" required="0"
+							groups="base.group_no_one"
+							attrs="{'invisible': [('id', '=', False)]}" string="Blocked" />
+						<label for="login_locked_time" string="Time"/>
+						<field name="login_locked_time" readonly="1" required="0"
+							groups="base.group_no_one"
+							attrs="{'invisible': [('id', '=', False)]}" string="Time" />
+					</xpath>
+					<xpath
+						expr="//div[@name='button_box']/button[@name='toggle_active']"
+						position="after">
+						<button name="unlock_user_login" string="Unlock Login"
+							type="object" class="oe_stat_button" icon="fa-unlock"
+							attrs="{'invisible':[('login_locked', '=', False)]}" />
+					</xpath>
+					<xpath expr="//field[@name='company_ids']" position="before">
+						<field name="location_ids" string="Allowed Locations"
+							widget="many2many_tags" />
+					</xpath>
+				</data>
+			</field>
+		</record>
+
+	</data>
+</odoo>

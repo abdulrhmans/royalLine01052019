@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<template id="payment_receipt">
+			<t t-call="report.external_layout">
+				<div class="page">
+					<t t-foreach="docs" t-as="voucher">
+						<div class="row">
+							<h2>
+								<center>
+									<t t-if="voucher.type in ['sale']">
+										<span>Sales Receipts</span>
+									</t>
+									<t t-if="voucher.type in ['purchase']">
+										<span>Purchase Receipts</span>
+									</t>
+									<t t-if="voucher.type in ['receipt']">
+										<span>Receipt Voucher</span>
+									</t>
+									<t t-if="voucher.type in ['payment']">
+										<span>Payment Receipt</span>
+									</t>
+								</center>
+							</h2>
+						</div>
+						<br />
+
+						<table width="100%">
+							<thead>
+								<tr>
+									<td colspan="2">
+										Number :
+										<t t-if="voucher.number">
+											<span t-field="voucher.number" />
+										</t>
+										<t t-if="not voucher.number">
+										</t>
+									</td>
+								</tr>
+								<tr height="6px"></tr>
+								<tr>
+									<td width="50%">
+										Amount :
+										<span
+											t-esc="formatLang(voucher.amount,digits=get_digits(dp='Account'),currency_obj = voucher.currency_id)" />
+									</td>
+									<td width="50%">
+										Date :
+										<span t-esc="voucher.date" />
+									</td>
+								</tr>
+								<tr height="6px"></tr>
+								<tr id="cus_ref">
+									<td width="50%">
+										<t t-if="voucher.type in ['receipt']">
+											Name :
+											<span t-esc="getCustomerName(voucher,voucher.partner_id)['name']" />
+										</t>
+										<t t-if="voucher.type in ['payment']">
+											Name :
+											<t t-if="voucher.partner_id">
+												<span t-esc="getCustomerName(voucher,voucher.partner_id)['name']" />
+											</t>
+											<t t-if="not voucher.partner_id">
+												<span t-esc="voucher.partner_name" />
+											</t>
+										</t>
+									</td>
+									<td width="50%">
+										Reference :
+										<span t-field="voucher.reference" />
+									</td>
+								</tr>
+								<tr height="6px"></tr>
+								<tr>
+									<td width="50%">
+										Memo :
+										<span t-field="voucher.name" />
+									</td>
+									<td width="50%">
+										Printing Datetime :
+										<span
+											t-esc="formatLang(time.strftime('%Y-%m-%d %H:%M:%S'),date_time=True)" />
+									</td>
+								</tr>
+							</thead>
+						</table>
+						<br />
+						<br />
+						
+						<t t-if="voucher.type in ['receipt']">
+							<t t-if="voucher.customer_type in ['Receipt Voucher']">
+								<table class="table table-condensed">
+									<thead>
+										<tr>
+											<th width="90%">Memo</th>
+											<th class="text-right">Amount</th>
+										</tr>
+									</thead>
+									<tbody class="invoice_tbody">
+										<tr t-foreach="voucher.receipt_lines" t-as="l">
+											<td>
+												<span t-field="l.memo" />
+											</td>
+											<td class="text-right">
+												<span t-field="l.amount" />
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</t>
+						</t>
+						
+						<t t-if="voucher.type in ['payment']">
+							<t t-if="voucher.supplier_type in ['Payment Order']">
+								<table class="table table-condensed">
+									<thead>
+										<tr>
+											<th width="90%">Memo</th>
+											<th class="text-right">Amount</th>
+										</tr>
+									</thead>
+									<tbody class="invoice_tbody">
+										<tr t-foreach="voucher.payment_lines" t-as="l">
+											<td>
+												<span t-field="l.memo" />
+											</td>
+											<td class="text-right">
+												<span t-field="l.amount" />
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</t>
+						</t>
+						
+						<table style="width:100%;border-style:none;">
+							<tr>
+								<td style="border-style:none;text-align: center" t-if="voucher.type in ['payment']">Recipient</td>
+								<td style="border-style:none;text-align: center">Accountant</td>
+								<td style="border-style:none;text-align: center">Financial Manager</td>
+								<td style="border-style:none;text-align: center" t-if="voucher.type in ['payment']">General Manager</td>
+							</tr>
+							<tr height="25px" />
+							<tr>
+								<td style="border-style:none;text-align: center" t-if="voucher.type in ['payment']">..............................</td>
+								<td style="border-style:none;text-align: center">..............................</td>
+								<td style="border-style:none;text-align: center">..............................</td>
+								<td style="border-style:none;text-align: center" t-if="voucher.type in ['payment']">..............................</td>
+							</tr>
+						</table>
+						<t t-if="voucher.narration">
+							<br/>
+							<p>Note: <span t-field="voucher.narration" /></p>
+						</t>
+						<p style="page-break-after:always" />
+					</t>
+				</div>
+			</t>
+		</template>
+
+	</data>
+</openerp>

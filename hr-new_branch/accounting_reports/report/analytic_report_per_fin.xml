@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<data>
+		<report id="account_analytic_report_per_fin"
+			model="account.account" report_type="qweb-pdf"
+			string="Analytic Report"
+			name="accounting_reports.analytic_report_per"
+			file="accounting_reports.analytic_report_per"
+			print_report_name="'Analytic Report Per Financial'" />
+
+		<template id="analytic_report_per">
+			<t t-foreach="accmove" t-as="line">
+				<t t-if="line['data']">
+					<t t-call="common_report.external_layout_without_bg">
+						<div class="page">
+							<div class="row">
+								<h2>
+									<center>
+										<span>
+											Analytic Details Per Financial Account
+										</span>
+									</center>
+								</h2>
+								<table cellspacing="0" width="100%">
+									<tr>
+										<td
+											style="font-weight:bold;border-style:none;width:75px;background-color:#ffffff">
+											<b>From:</b>
+										</td>
+										<td style="border-style:none;background-color:#ffffff">
+											<span t-esc="from_date" />
+										</td>
+										<td
+											style="font-weight:bold;border-style:none;width:50px;background-color:#ffffff">
+											<b>To:</b>
+										</td>
+										<td style="border-style:none;background-color:#ffffff">
+											<span t-esc="to_date" />
+										</td>
+									</tr>
+									<tr>
+										<td
+											style="font-weight:bold;border-style:none;width:75px;background-color:#ffffff">
+											<b>User:</b>
+										</td>
+										<td style="border-style:none;background-color:#ffffff">
+											<span t-esc="user.name" />
+										</td>
+										<td
+											style="font-weight:bold;border-style:none;width:75px;background-color:#ffffff">
+											<b>Print Date:</b>
+										</td>
+										<td style="border-style:none;background-color:#ffffff">
+											<span t-esc="time.strftime('%Y-%m-%d %H:%M:%S')" />
+										</td>
+									</tr>
+								</table>
+								<table class="table" style="width:100%">
+									<thead>
+										<tr>
+											<th style="color: black;text-align: right;">
+												<span t-esc="line['name']" />
+											</th>
+										</tr>
+									</thead>
+								</table>
+								<table class="table table-condensed" style="width:100%">
+									<thead>
+										<tr>
+											<th
+												style="text-align: left;border: 1px solid #DDDDDD;min-width:150px"
+												rowspan="2">Account</th>
+											<th
+												style="text-align: left;border: 1px solid #DDDDDD;min-width:80px"
+												rowspan="2">Journal</th>
+											<th
+												style="text-align: left;border: 1px solid #DDDDDD;min-width:100px"
+												rowspan="2">Entry Number</th>
+											<th
+												style="text-align: left;border: 1px solid #DDDDDD;min-width:80px"
+												rowspan="2">Date</th>
+											<th style="text-align: lef;border: 1px solid #DDDDDD;"
+												rowspan="2">Ref</th>
+											<th style="text-align: left;border: 1px solid #DDDDDD;"
+												rowspan="2">Label</th>
+											<th style="text-align: left;border: 1px solid #DDDDDD;"
+												rowspan="2">Debit</th>
+											<th style="text-align: left;border: 1px solid #DDDDDD;"
+												rowspan="2">Credit</th>
+											<th style="text-align: left;border: 1px solid #DDDDDD;"
+												rowspan="2">Balance</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr t-foreach="line['data']" t-as="line1"
+											style="border: 1px solid #DDDDDD;">
+											<td style="border: 1px solid #DDDDDD;text-align: right;">
+												<span t-esc="line1['account']" />
+											</td>
+											<td style="border: 1px solid #DDDDDD;text-align: right;">
+												<span t-esc="line1['jour']" />
+											</td>
+											<td style="border: 1px solid #DDDDDD;text-align: right;">
+												<span t-esc="line1['j_entry']" />
+											</td>
+											<td style="border: 1px solid #DDDDDD;text-align: right;">
+												<span t-esc="line1['date']" />
+											</td>
+											<td style="border: 1px solid #DDDDDD;text-align: right;">
+												<span t-esc="line1['ref']" />
+											</td>
+											<td style="border: 1px solid #DDDDDD;text-align: right;">
+												<span t-esc="line1['name']" />
+											</td>
+											<td style="border: 1px solid #DDDDDD;text-align: right;">
+												<span t-esc="'%.3f'% line1['debit']" />
+											</td>
+											<td style="border: 1px solid #DDDDDD;text-align: right;">
+												<span t-esc="'%.3f'% line1['credit']" />
+											</td>
+											<td style="border: 1px solid #DDDDDD;text-align: right;">
+												<span t-esc="'%.3f'% line1['bal']" />
+											</td>
+										</tr>
+										<tr style="border: 1px solid #DDDDDD;">
+											<td
+												style="text-align: right;font-weight: bold;border: 1px solid #DDDDDD;">
+											</td>
+											<td
+												style="text-align: right;font-weight: bold;border: 1px solid #DDDDDD;">
+											</td>
+											<td
+												style="text-align: right;font-weight: bold;border: 1px solid #DDDDDD;">
+											</td>
+											<td
+												style="text-align: right;font-weight: bold;border: 1px solid #DDDDDD;">
+											</td>
+											<td
+												style="text-align: right;font-weight:  bold;border: 1px solid #DDDDDD;">
+											</td>
+											<td
+												style="text-align: right;font-weight: bold;border: 1px solid #DDDDDD;">
+												Total</td>
+											<td
+												style="text-align: right;font-weight: bold;border: 1px solid #DDDDDD;">
+												<span t-esc="'%.3f'% line['deb_tot']" />
+											</td>
+											<td
+												style="text-align: right;font-weight: bold;border: 1px solid #DDDDDD;">
+												<span t-esc="'%.3f'% line['cre_tot']" />
+											</td>
+											<td
+												style="text-align: right;font-weight: bold;min-width:100px;border: 1px solid #DDDDDD;">
+												<span t-esc="'%.3f'%(line['deb_tot']-line['cre_tot'])" />
+											</td>
+										</tr>
+									</tbody>
+
+								</table>
+							</div>
+						</div>
+					</t>
+				</t>
+			</t>
+		</template>
+	</data>
+</odoo>

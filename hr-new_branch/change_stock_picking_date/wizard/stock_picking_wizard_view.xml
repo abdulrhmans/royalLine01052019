@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="stock_picking_change_date_form_view">
+			<field name="name">stock_picking_change_date_form_view</field>
+			<field name="model">change.date.picking</field>
+			<field name="arch" type="xml">
+				<form>
+					<group col="2">
+						<field name="picking_id" widget="many2many_tags" options="{'no_create': True,'no_quick_create': True,'no_open': True, 'no_create_edit': True}"/>
+						<field name="date" />
+						<field name="change_journal" />
+						<footer>
+							<button string="Chaneg" name="change_date" type="object"
+								class="oe_highlight" />
+							or
+							<button string="Cancel" class="oe_link" special="cancel" />
+						</footer>
+					</group>
+				</form>
+			</field>
+		</record>
+
+
+		<act_window id="action_change_picking_date" name="Change Picking Date"
+			res_model="change.date.picking" view_type="form" view_mode="form"
+			target="new" />
+		<menuitem id="base_toolbox_picking_date" name="Change Picking Date"
+			parent="base_toolbox.base_toolbox_menu_id" action="action_change_picking_date" />
+	</data>
+</odoo>

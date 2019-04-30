@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+	
+		<record model="ir.ui.view" id="edit_holiday_status_form">
+			<field name="name">edit.holiday.status.form</field>
+			<field name="model">hr.holidays.status</field>
+			<field name="inherit_id" ref="hr_holidays.edit_holiday_status_form" />
+			<field name="arch" type="xml">
+				<group name="description" position="after">
+					<group string="Configuration">
+						<field name="unpaid"/>
+						<field name="is_public_holiday" help="Use this leave type for Public Holidays"/>
+					</group>
+				</group>
+			</field>
+		</record>
+
+
+	</data>
+</openerp>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="res_config_settings_view_form" model="ir.ui.view">
+	        <field name="name">res.config.settings.swtools_sqlpasssword</field>
+	        <field name="model">res.config.settings</field>
+	        <field name="inherit_id" ref="base_toolbox.res_config_settings_view_form" />
+	        <field name="arch" type="xml">
+	            <xpath expr="//div[@id='sw_tools_settings']" position="inside">
+	                <div class="row mt16 o_settings_container" id="default_sql_password">
+                        <div class="col-xs-12 col-md-6 o_setting_box">
+                            <div class="o_setting_right_pane">
+                                <label string="SQL Template"/>
+                                <span class="" title="" groups=""/>
+                                <div class="text-muted">
+                                    Password which will be used for confirming the sql queries to be excuted 
+                                </div>
+                                <div class="content-group">
+                                    <div class="mt16" groups="">
+                                        <label for="default_sql_password" string="Password" class="col-xs-3 col-md-3 o_light_label"/>
+                                        <field name="default_sql_password" password="True" help="Password to be used for confirming Execution of SQL Queries"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+	                </div>
+				</xpath>
+			</field>
+		</record>
+
+	</data>
+</odoo>

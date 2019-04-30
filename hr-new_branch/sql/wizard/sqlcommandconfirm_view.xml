@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_sql_command_confirm_form">
+            <field name="name">sql.command.confirm.form</field>
+            <field name="model">sql.command.confirm</field>
+            <field name="arch" type="xml">
+                <form string="Confirm SQL">
+                    <separator string="Please confirm the password to execute this query"/>
+                    <group>
+                        <field name="password" password="True" help="Type the password for executing any query on the database"/>
+                    </group>
+                    <footer>
+                        <button string="Continue" name="continue_process" type="object" default_focus="1" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" class="oe_link" special="cancel"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<odoo>
+	<data>
+
+		<record model="ir.ui.view" id="hr_employee_hi_view">
+			<field name="name">hr.employee.hi.view</field>
+			<field name="model">hr.employee</field>
+			<field name="inherit_id" ref="hr.view_employee_form" />
+			<field name="arch" type="xml">
+	            <page name="personal_information" position="inside">
+	                <group col="4">
+	                    <field name="employee_health_amount" />
+	                    <field name="dependent_health_amount" />
+	                </group>
+	            	<group>
+	            		<separator string="Dependent Info"/>
+		                <field name="dependent_lines" nolabel="1" colspan="4">
+							<tree string="Dependent Information" editable="bottom">
+								<field name="name" />
+								<field name="relative_type" />
+								<field name="birthdate" />
+								<field name="age" />
+								<field name="ident_number" />
+								<field name="health_amount" />
+							</tree>
+						</field>
+					</group>
+	            </page>
+			</field>
+		</record>
+
+	</data>
+</odoo>

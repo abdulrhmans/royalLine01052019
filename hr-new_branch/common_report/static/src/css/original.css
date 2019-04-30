@@ -1,0 +1,141 @@
+.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.mt128 {
+  margin-top: 128px !important;
+}
+
+.mt92 {
+  margin-top: 92px !important;
+}
+
+.mt64 {
+  margin-top: 64px !important;
+}
+
+.mt48 {
+  margin-top: 48px !important;
+}
+
+.mt32 {
+  margin-top: 32px !important;
+}
+
+.mt16 {
+  margin-top: 16px !important;
+}
+
+.mt8 {
+  margin-top: 8px !important;
+}
+
+.mt4 {
+  margin-top: 4px !important;
+}
+
+.mt0 {
+  margin-top: 0px !important;
+}
+
+.mb128 {
+  margin-bottom: 128px !important;
+}
+
+.mb92 {
+  margin-bottom: 92px !important;
+}
+
+.mb64 {
+  margin-bottom: 64px !important;
+}
+
+.mb48 {
+  margin-bottom: 48px !important;
+}
+
+.mb32 {
+  margin-bottom: 32px !important;
+}
+
+.mb16 {
+  margin-bottom: 16px !important;
+}
+
+.mb8 {
+  margin-bottom: 8px !important;
+}
+
+.mb4 {
+  margin-bottom: 4px !important;
+}
+
+.mb0 {
+  margin-bottom: 0px !important;
+}
+
+
+table {
+  background-color: transparent;
+}
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-top: 1px solid #ddd;
+}
+.table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #ddd;
+}
+.table > caption + thead > tr:first-child > th,
+.table > colgroup + thead > tr:first-child > th,
+.table > thead:first-child > tr:first-child > th,
+.table > caption + thead > tr:first-child > td,
+.table > colgroup + thead > tr:first-child > td,
+.table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+.table > tbody + tbody {
+  border-top: 2px solid #ddd;
+}
+.table .table {
+  background-color: #fff;
+}
+.table-condensed > thead > tr > th,
+.table-condensed > tbody > tr > th,
+.table-condensed > tfoot > tr > th,
+.table-condensed > thead > tr > td,
+.table-condensed > tbody > tr > td,
+.table-condensed > tfoot > tr > td {
+  padding: 2px !important;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-justify {
+  text-align: justify;
+}
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}

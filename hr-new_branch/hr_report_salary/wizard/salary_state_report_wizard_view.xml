@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<record id="wizard_salary_statement_report" model="ir.ui.view">
+			<field name="name">Salary Statements</field>
+			<field name="model">salary.statements.report</field>
+			<field name="arch" type="xml">
+				<form string="Salary Statements" >
+					<footer>
+						<button string="Print" class="oe_highlight" type="object"
+							name="print_report" />
+						or
+						<button string="Cancel" class="oe_link" special="cancel" />
+					</footer>
+					<group col="4">
+						<field name="from_date" />
+						<field name="to_date" />
+						<field name="show_bank_account" />
+						<!-- <field name="show_social_security" />
+						<field name="show_income_tax" />
+						<field name="salary" />
+						<field name="ss_company" />
+						<field name="hi_company" /> -->
+						<field name="landscape" />
+					</group>
+					<group col="2">
+						<field name="statement" />
+					</group>
+					<field name="employee_ids" >
+						<tree>
+                    		<field name="name"/>
+                    	</tree>
+					</field>
+				</form>
+			</field>
+		</record>
+
+		<record id="action_wizard_salary_statement_report" model="ir.actions.act_window">
+			<field name="name">Salary Statements</field>
+			<field name="res_model">salary.statements.report</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="wizard_salary_statement_report" />
+			<field name="target">new</field>
+		</record>
+
+		<menuitem id="menu_hr_report" name="Reports" sequence="90"
+			parent="hr_payroll.menu_hr_payroll_root" />
+
+		<menuitem action="action_wizard_salary_statement_report" id="menu_salary_statements"
+			parent="menu_hr_report" />
+
+	</data>
+</openerp>

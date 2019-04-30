@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<data>
+		<record id="analytic_report_wizard_view" model="ir.ui.view">
+			<field name="name">analytic_report_wizard_view</field>
+			<field name="model">analytic.wizard.report</field>
+			<field name="arch" type="xml">
+				<form>
+					<group col='4'>
+						<field name='from_date' />
+						<field name='to_date' />
+						<field name='account_id' />
+						<field name='init_balance' attrs="{'invisible': [('account_id', '=', False)]}"/>
+					</group>
+					<group>
+						<field name='analytic_id' />
+					</group>
+					<footer>
+						<button string="Print" name="print_report" type="object"
+							default_focus="1" class="oe_highlight" />
+						or
+						<button string="Cancel" class="oe_link" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+		<act_window id="analytic_report_wiz" name="Analytic Report"
+			res_model="analytic.wizard.report" view_type="form" view_mode="form"
+			key2="client_action_multi" target="new" />
+
+		<menuitem name="Analytic Details Report"
+			id="menu_account_details_report"
+			parent="account.account_reports_management_menu"
+			action="analytic_report_wiz" sequence="21" />
+
+	</data>
+</odoo>

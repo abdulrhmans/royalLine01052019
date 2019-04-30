@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<record id="hr_basic_ded_rule" model="hr.salary.rule">
+			<field name="name">Basic Salary Deduction</field>
+			<field name="sequence" eval="8" />
+			<field name="code">BADED</field>
+			<field name="category_id" ref="hr_payroll.DED" />
+			<field name="condition_select">none</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute"><![CDATA[
+if employee.get_paid_days(worked_days)[0] < payslip.actuall_days:
+    result = (contract.wage - ((contract.wage/payslip.actuall_days)*(employee.get_paid_days(worked_days)[0])))
+else:
+    result = 0.0
+    ]]></field>
+		</record>
+		
+		<record id="hr_other_rule_n" model="hr.salary.rule">
+			<field name="name">Other Allowance</field>
+			<field name="sequence" eval="12" />
+			<field name="code">OTHERA</field>
+			<field name="category_id" ref="hr_payroll.ALW" />
+			<field name="condition_select">none</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute"><![CDATA[
+if contract and contract.is_other:
+    result = contract.other_amount
+else:
+    result = 0.0
+    ]]></field>
+		</record>
+		<record id="hr_other_ded_rule_n" model="hr.salary.rule">
+			<field name="name">Other Deduction</field>
+			<field name="sequence" eval="12" />
+			<field name="code">OTHDED</field>
+			<field name="category_id" ref="hr_payroll.DED" />
+			<field name="condition_select">none</field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute"><![CDATA[
+if contract and contract.is_other:
+    result = (contract.other_amount - ((contract.other_amount/payslip.actuall_days)*(employee.get_paid_days(worked_days)[0])))
+else:
+    result = 0.0
+    ]]></field>
+		</record>
+		
+		
+		<record id="hr_encashment_rule" model="hr.salary.rule">
+			<field name="name">Annual Leave Balance Encashment</field>
+			<field name="sequence" eval="9" />
+			<field name="code">ALBE</field>
+			<field name="category_id" ref="hr_payroll.ALW" />
+			<field name="condition_select">python</field>
+			<field name="condition_python"><![CDATA[
+if contract.out_state:
+    result = True
+else:
+    result = False
+         ]]></field>
+			<field name="amount_select">code</field>
+			<field name="amount_python_compute"><![CDATA[
+result = (contract.wage/payslip.actuall_days)*(employee.remaining_leaves)
+     ]]></field>
+		</record>
+		
+		
+		
+		<record id="hr_rule_ssd" model="hr.salary.rule">
+            <field name="name">Social Security Deductions</field>
+            <field name="sequence" eval="11"/>
+            <field name="code">SSD</field>
+            <field name="category_id" ref="hr_payroll.DED"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">percentage</field>
+            <field name="amount_percentage_base">categories.GROSS</field>
+            <field name="quantity" eval="1"/>
+            <field name="amount_percentage" eval="19.5000"/>
+        </record>
+        
+        <record id="hr_rule_ssc" model="hr.salary.rule">
+            <field name="name">Social Security Contributions</field>
+            <field name="sequence" eval="25"/>
+            <field name="code">SSC</field>
+            <field name="category_id" ref="hr_payroll.COMP"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">percentage</field>
+            <field name="amount_percentage_base">categories.GROSS</field>
+            <field name="quantity" eval="1"/>
+            <field name="amount_percentage" eval="12.7500"/>
+        </record>
+        
+        <record id="hr_rule_basic_alw" model="hr.salary.rule">
+            <field name="name">Basic And All Allowances</field>
+            <field name="sequence" eval="40"/>
+            <field name="code">BAA</field>
+            <field name="category_id" ref="hr_payroll.GROSS"/>
+            <field name="condition_select">none</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result = contract.wage+categories.ALW</field>
+        </record>
+        
+	</data>
+</openerp>

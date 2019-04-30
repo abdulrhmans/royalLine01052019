@@ -1,0 +1,20 @@
+<odoo>
+<data noupdate="1">
+		<record model="res.partner" id="partner1">
+			<field name="name">demo partner</field>
+			<field name="customer" eval="True" />
+			<field name="supplier" eval="True" />
+		</record>
+
+
+		<record model="product.product" id="product1">
+			<field name="name">demo product</field>
+			 <field name="type">product</field>
+			  <field name="categ_id" ref="product.product_category_all"/>
+			 
+			<field name="sale_ok" eval="True" />
+			<field name="purchase_ok" eval="True" />
+		</record>
+
+	</data>
+</odoo>

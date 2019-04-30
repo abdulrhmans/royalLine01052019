@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data noupdate="1">
+
+		<record id="check_paper_format" model="report.paperformat">
+			<field name="name">SW - Check Report Qweb</field>
+			<field name="orientation">Landscape</field>
+			<field name="format">custom</field>
+			<field name="page_height">161</field>
+			<field name="page_width">81</field>
+			<field name="header_line">True</field>
+			<field eval="0" name="margin_top" />
+			<field eval="0" name="margin_bottom" />
+			<field eval="2" name="margin_right" />
+			<field eval="2" name="margin_left" />
+			<field name="header_line" eval="False" />
+			<field name="header_spacing">0</field>
+			<field name="dpi">90</field>
+		</record>
+
+		<template id="empty_layout_header">
+			<div class="header" width="100%">
+			</div>
+		</template>
+		<template id="empty_layout_footer">
+			<div class="footer">
+			</div>
+		</template>
+
+		<template id="empty_layout">
+			<t t-if="o and 'company_id' in o">
+				<t t-set="company" t-value="o.company_id"></t>
+			</t>
+			<t t-if="not o or not 'company_id' in o">
+				<t t-set="company" t-value="res_company"></t>
+			</t>
+
+			<t t-call="sw_account_check.empty_layout_header" />
+			<t t-raw="0" />
+			<t t-call="sw_account_check.empty_layout_footer" />
+		</template>
+
+
+		<report auto="False" report_type="qweb-pdf" id="check_rep"
+			model="account.voucher" string="Check Report" name="sw_account_check.check"
+			file="sw_account_check.check" />
+
+		<record id="sw_account_check.check_rep" model="ir.actions.report.xml">
+			<field name="paperformat_id" ref="sw_account_check.check_paper_format" />
+		</record>
+
+	</data>
+</openerp>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="view_object_merge_form">
+            <field name="name">object.merger.form</field>
+            <field name="model">object.merger</field>
+            <field name="arch" type="xml">
+                <form string="Merge Entries">
+	                <group>
+	                    <separator string="to_replace"/>
+                        <field name="delete_if_not_active"/>
+	                </group>
+	                <footer>
+	                    <button string="Merge Entries" name="action_merge" type="object" class="oe_highlight"/>
+	                    or
+	                    <button string="Cancel" class="oe_link" special="cancel"/>
+	                </footer>
+                </form>
+            </field>
+        </record>
+
+    </data>
+</odoo>

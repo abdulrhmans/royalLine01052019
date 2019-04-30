@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+  <data>
+<record id="new" model="ir.ui.view">
+		<field name="name">new</field>
+		<field name="model">new.new</field>
+		<field name="inherit_id" ref="new" />
+		<field name="arch" type="xml">
+		</field>
+	</record>
+  </data>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_login_detail,login_attempts_login_detail,model_login_detail,group_view_logins_admin,1,1,1,1
+access_login_location,login_attempts_login_location,model_login_location,group_view_logins_admin,1,1,1,1
+access_res_users,base_res_users,base.model_res_users,group_view_logins_admin,1,0,0,0

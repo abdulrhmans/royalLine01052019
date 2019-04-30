@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="users_contact_privilege_extend" model="ir.ui.view">
+            <field name="name">res.users.form_contact_privilege</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='access_rights']/group[1]" position="after">
+                    <group string="Contacts Access" attrs="{'invisible':[('show_contacts_access_controls', '=', False)]}">
+	                    <field name="partner_tags" widget="many2many_tags" string="Allowed Tags"></field>
+	                    <field name="show_contacts_access_controls" invisible="1"></field>
+	                </group>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page string="Tagged Contacts Allowed" attrs="{'invisible':[('show_contacts_access_controls', '=', False)]}">
+	                    <field name="allowed_contacts" string="Allowed Contacts" nolabel="1"></field>
+	                </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

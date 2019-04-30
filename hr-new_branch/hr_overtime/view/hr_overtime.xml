@@ -1,0 +1,163 @@
+<openerp>
+	<data>
+		
+		<record id="resource_calendar_form" model="ir.ui.view">
+            <field name="name">resource.calendar.form</field>
+            <field name="model">resource.calendar</field>
+            <field name="inherit_id" ref="resource.resource_calendar_form"></field>
+            <field name="arch" type="xml">
+                <field name="company_id" position="after">
+                    <field name="overtime_work_days" widget="float_time"/>
+                    <field name="overtime_off_days" widget="float_time"/>
+                </field>
+            </field>
+        </record>
+        
+		<record id="hr_overtime_tree_view" model="ir.ui.view">
+			<field name="name">hr.overtime.tree</field>
+			<field name="model">hr.overtime</field>
+			<field name="arch" type="xml">
+				<tree string="Overtime"
+					colors="gray: state=='cancel'; blue: state == 'draft'; red: state == 'validate'; black: state == 'done'">
+					<field name="name" />
+					<field name="date" />
+					<field name="start_datetime" />
+					<field name="end_datetime" />
+					<field name="analytic_account_id" groups="hr.group_hr_user" />
+					<field name="cost" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+
+		<record id="hr_overtime_form_view" model="ir.ui.view">
+			<field name="name">hr.overtime.form</field>
+			<field name="model">hr.overtime</field>
+			<field name="arch" type="xml">
+				<form string="Overtime">
+					<header>
+						<button string="Validate" name="validate_overtime" states="draft"
+							type="object" class="oe_highlight" groups="base.group_user"/>
+						<button string="Approve" name="done_overtime" states="validate"
+							type="object" class="oe_highlight" groups="hr.group_hr_manager"/>
+						<button string="Set to Draft" name="draft_overtime" states="cancel"
+						        groups="hr.group_hr_manager"  
+							    type="object" />
+						<button string="Cancel" name="cancel_overtime" states="done,validate,draft" 
+						        groups="hr.group_hr_manager"
+							    type="object" class="oe_highlight" />
+                        
+						<field name="state" widget="statusbar" statusbar_visible="draft,cancel,validate,done" />
+					</header>
+					<sheet>
+						<group col="4">
+                            <field name="name" domain="[('user_id','in',[uid])]"
+								options="{'no_create': True,'no_quick_create': True, 'no_create_edit': True}" />
+                            <field name="time_zone" />
+                            <field name="start_datetime" />
+                            <field name="date" />
+                            <field name="end_datetime" />
+                            <field name="duration" />
+                            <field name="overtime" />
+                            <field name="analytic_account_id" options="{'no_create': True,'no_quick_create': True, 'no_create_edit': True}" groups="hr.group_hr_user"/>
+                            <field name="cost" />
+                            <field name="analytic_line_id"  options="{'no_create': True,'no_quick_create': True, 'no_create_edit': True}" groups="hr.group_hr_user" readonly="1" />
+                        </group>
+					</sheet>
+					<div class="oe_chatter">
+	                    <field name="message_follower_ids" widget="mail_followers" groups="hr.group_hr_user"/>
+	                    <field name="message_ids" widget="mail_thread"/>
+	                </div>
+				</form>
+			</field>
+		</record>
+
+		<record id="hr_overtime_form_view_user" model="ir.ui.view">
+			<field name="name">hr.overtime.access</field>
+			<field name="model">hr.overtime</field>
+			<field name="inherit_id" ref="hr_overtime_form_view" />
+			<field name="groups_id" eval="[(6, 0, [ref('hr.group_hr_user') ])]" />
+			<field name="arch" type="xml">
+				<field name="name" position="attributes">
+					<attribute name="domain"></attribute>
+				</field>
+			</field>
+		</record>
+		
+		<record id="hr_overtime_search_view" model="ir.ui.view">
+			<field name="name">hr.overtime.search</field>
+			<field name="model">hr.overtime</field>
+			<field name="arch" type="xml">
+				<search string="Search">
+					<field name="name" />
+					<filter string="Draft Status" name="state" domain="[('state','=','draft')]" />
+					<filter string="Validated Status" name="state"
+						domain="[('state','=','done')]" />
+					<filter string="Canceled Status" name="state"
+						domain="[('state','=','cancel')]" />
+					<filter string="Done Status" name="state" domain="[('state','=','done')]" />
+					<group expand="0" string="Group By..." colspan="12" col="10">
+						<filter string="Employee Name" domain="[]" context="{'group_by':'name'}"
+							icon="terp-project" />
+						<filter string="Date" icon="terp-go-today" domain="[]"
+							context="{'group_by':'date'}" />
+						<filter string="Start Date" icon="terp-go-today" domain="[]"
+							context="{'group_by':'start_datetime'}" />
+						<filter string="End Date" icon="terp-go-today" domain="[]"
+							context="{'group_by':'end_datetime'}" />
+						<filter string="Status" domain="[]" context="{'group_by':'state'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+		<record id="hr_overtime_action" model="ir.actions.act_window">
+			<field name="name">Overtime</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.overtime</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="hr_overtime_search_view" />
+			<field name="help" type="html">
+				<p class="oe_view_nocontent_create">
+					Click to add a new Employee Overtime.
+				</p>
+			</field>
+		</record>
+
+		<menuitem id="menu_hr_overtime_menuitem" action="hr_overtime_action"
+			parent="hr_payroll.menu_hr_payroll_root" sequence="88" />
+        
+		<!-- Overtime Rule -->
+        <record id="overtime_rule_OTN_add" model="hr.salary.rule">
+            <field name="name">Overtime Rule</field>
+            <field name="sequence" eval="12"/>
+            <field name="code">OTN</field>
+            <field name="category_id" ref="hr_payroll.ALW"/>
+            <field name="condition_select">python</field>
+            <field name="condition_python">result=inputs.OTN or False</field>
+            <field name="amount_select">code</field>
+            <field name="amount_python_compute">result =  inputs.OTN.amount</field>
+        </record>
+		<record id="property_rule_overtime_employee" model="ir.rule">
+			<field name="name">Overtime - Employee</field>
+			<field name="model_id" ref="model_hr_overtime" />
+			<field name="domain_force">[('name.user_id','=',user.id)]</field>
+			<field name="perm_create" eval="False" />
+			<field name="perm_write" eval="False" />
+			<field name="perm_unlink" eval="False" />
+			<field name="groups" eval="[(4,ref('base.group_user'))]" />
+		</record>
+		<record id="property_rule_overtime_officer" model="ir.rule">
+			<field name="name">Overtime Officer</field>
+			<field name="model_id" ref="model_hr_overtime" />
+			<field name="domain_force">[(1,'=',1)]</field>
+			<field name="perm_create" eval="False" />
+			<field name="perm_write" eval="False" />
+			<field name="perm_unlink" eval="False" />
+			<field name="groups" eval="[(4,ref('hr.group_hr_user'))]" />
+		</record>
+        
+
+	</data>
+</openerp>

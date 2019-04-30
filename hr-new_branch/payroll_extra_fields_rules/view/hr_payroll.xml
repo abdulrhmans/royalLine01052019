@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<odoo>
+	<data>
+
+		<record model="ir.ui.view" id="view_hr_payslip_extra_fields_form">
+			<field name="name">hr.payslip.form.extra.fields.view</field>
+			<field name="model">hr.payslip</field>
+			<field name="inherit_id" ref="hr_payroll.view_hr_payslip_form" />
+			<field name="arch" type="xml">
+				<xpath
+					expr="//field[@name='worked_days_line_ids']//tree//field[@name='sequence']"
+					position="after">
+					<field name="leave_type_id" invisible="0" />
+				</xpath>
+			</field>
+		</record>
+
+	</data>
+</odoo>

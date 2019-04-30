@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<data>
+		<record id="stock.access_product_template_stock_manager" model="ir.model.access">
+			<field name="perm_read" eval="True" />
+			<field name="perm_write" eval="False" />
+			<field name="perm_create" eval="False" />
+			<field name="perm_unlink" eval="False" />
+		</record>
+		<record id="stock.access_product_product_stock_manager" model="ir.model.access">
+			<field name="perm_read" eval="True" />
+			<field name="perm_write" eval="False" />
+			<field name="perm_create" eval="False" />
+			<field name="perm_unlink" eval="False" />
+		</record>
+		<record id="account.access_product_product_account_manager"
+				   model="ir.model.access">
+			<field name="perm_read" eval="True" />
+			<field name="perm_write" eval="False" />
+			<field name="perm_create" eval="False" />
+			<field name="perm_unlink" eval="False" />
+		</record>
+		<record id="account.access_product_template_account_manager"
+			       model="ir.model.access">
+			<field name="perm_read" eval="True" />
+			<field name="perm_write" eval="False" />
+			<field name="perm_create" eval="False" />
+			<field name="perm_unlink" eval="False" />
+		</record>
+		<record id="purchase.access_product_product_purchase_manager"
+			       model="ir.model.access">
+			<field name="perm_read" eval="True" />
+			<field name="perm_write" eval="False" />
+			<field name="perm_create" eval="False" />
+			<field name="perm_unlink" eval="False" />
+		</record>
+		<record id="purchase.access_product_template_purchase_manager"
+			       model="ir.model.access">
+			<field name="perm_read" eval="True" />
+			<field name="perm_write" eval="False" />
+			<field name="perm_create" eval="False" />
+			<field name="perm_unlink" eval="False" />
+		</record>
+		<record id="sale.access_product_template_sale_manager"
+			       model="ir.model.access">
+			<field name="perm_read" eval="True" />
+			<field name="perm_write" eval="False" />
+			<field name="perm_create" eval="False" />
+			<field name="perm_unlink" eval="False" />
+		</record>
+		<record id="sale.access_product_product_sale_manager"
+			       model="ir.model.access">
+			<field name="perm_read" eval="True" />
+			<field name="perm_write" eval="False" />
+			<field name="perm_create" eval="False" />
+			<field name="perm_unlink" eval="False" />
+		</record>
+	</data>
+</odoo> 

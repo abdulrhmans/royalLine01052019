@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<template id="salary_state">
+			<t t-call="web.external_layout">
+				<div class="page">
+					<div class="row">
+						<h2>
+							<center>
+								<span>Salary Statement</span>
+							</center>
+						</h2>
+					</div>
+					<br />
+					<table cellspacing="0" width="100%">
+						<tr>
+							<td style="font-weight:bold;border-style:none;">
+								<b>From</b>
+							</td>
+							<td style="border-style:none;">
+								<span t-esc="from_date" />
+							</td>
+							<td style="font-weight:bold;border-style:none;">
+								<b>To</b>
+							</td>
+							<td style="border-style:none;">
+								<span t-esc="to_date" />
+							</td>
+						</tr>
+						<tr>
+							<td style="font-weight:bold;border-style:none;">
+								<b>Print Date</b>
+							</td>
+							<td style="border-style:none;">
+								<span t-esc="time.strftime('%Y-%m-%d')" />
+							</td>
+						</tr>
+
+					</table>
+					<br />
+					<t t-if="show_bank_account">
+						<table style="width:100%;border-style:none;">
+							<tr>
+								<td style="border-style:none;text-align: right">
+									<span t-raw="statement" />
+								</td>
+							</tr>
+						</table>
+						<br />
+					</t>
+					<table class="table table-condensed" style="width:100%">
+						<thead>
+							<tr>
+								<th>Employee ID</th>
+								<th>Name</th>
+								<t t-if="show_bank_account">
+									<th>Bank Account</th>
+								</t>
+								<th>Bank</th>
+								<th>Branch</th>
+								<!-- <th width="100px">From</th>
+								<th width="100px">To</th> -->
+								<t t-if="salary == 'net'">
+									<th>Net Salary</th>
+								</t>
+								<t t-if="salary == 'basic'">
+									<th>Basic Salary</th>
+								</t>
+								<t t-if="show_social_security">
+									<th>Social Security</th>
+								</t>
+								<t t-if="show_income_tax">
+									<th>Income Tax</th>
+								</t>
+								<t t-if="ss_company">
+									<th>Social Security company contribution</th>
+								</t>
+								<t t-if="hi_company">
+									<th>Health Insurance company contribution</th>
+								</t>
+								<th>Curr</th>
+							</tr>
+						</thead>
+						<tbody>
+							<t t-foreach="payslipLines" t-as="line">
+								<tr>
+									<td>
+										<span t-esc="line['emp_id']" />
+									</td>
+									<td>
+										<span t-esc="line['name']" />
+									</td>
+									<t t-if="show_bank_account">
+										<td>
+											<span t-esc="line['bank_account']" />
+										</td>
+									</t>
+									<td>
+										<span t-esc="line['bank_name']" />
+									</td>
+									<td>
+										<span t-esc="line['branch_name']" />
+									</td>
+									<!-- <td>
+										<span t-esc="line['from']" />
+									</td>
+									<td>
+										<span t-esc="line['to']" />
+									</td> -->
+									<td>
+										<span t-esc="formatLang(line['net_salary'], digits=2)" />
+									</td>
+									<t t-if="show_social_security">
+										<td>
+											<span t-esc="formatLang(line['social_security'], digits=2)" />
+										</td>
+									</t>
+									<t t-if="show_income_tax">
+										<td>
+											<span t-esc="formatLang(line['income_tax'], digits=2)" />
+										</td>
+									</t>
+									<t t-if="ss_company">
+										<td>
+											<span t-esc="formatLang(line['ss_company'], digits=2)" />
+										</td>
+									</t>
+									<t t-if="hi_company">
+										<td>
+											<span t-esc="formatLang(line['hi_company'], digits=2)" />
+										</td>
+									</t>
+									<td>
+										<span t-esc="line['currency']" />
+									</td>
+								</tr>
+							</t>
+							<tr>
+								<td />
+								<td />
+								<td />
+								<t t-if="show_bank_account">
+									<td />
+								</t>
+								<!-- <td />
+								<td /> -->
+								<td style="border-top:2px solid;font-weight:bold;">Total</td>
+								<td style="border-top:2px solid;font-weight:bold;">
+									<span t-esc="formatLang(get_totals['Salary'] , digits=2)" />
+								</td>
+								<t t-if="show_social_security">
+									<td style="border-top:2px solid;font-weight:bold;">
+										<span t-esc="formatLang(get_totals['Social_Security'], digits=2)" />
+									</td>
+								</t>
+								<t t-if="show_income_tax">
+									<td style="border-top:2px solid;font-weight:bold;">
+										<span t-esc="formatLang(get_totals['Income_Tax'], digits=2)" />
+									</td>
+								</t>
+								<t t-if="ss_company">
+									<td style="border-top:2px solid;font-weight:bold;">
+										<span t-esc="formatLang(get_totals['ss_company'], digits=2)" />
+									</td>
+								</t>
+								<t t-if="hi_company">
+									<td style="border-top:2px solid;font-weight:bold;">
+										<span t-esc="formatLang(get_totals['hi_company'], digits=2)" />
+									</td>
+								</t>
+								<td style="border-top:2px solid;font-weight:bold;">
+									<span t-esc="currency" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<br />
+					<table style="width:100%;border-style:none;">
+						<tr>
+							<td style="border-style:none;width: 80%">Authorized Signature
+								..............................................</td>
+							
+							<td style="border-style:none;">Stamp</td>
+						</tr>
+					</table>
+				</div>
+			</t>
+		</template>
+
+	</data>
+</openerp>

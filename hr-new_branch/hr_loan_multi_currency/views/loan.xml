@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+
+	<data>
+		
+		<record id="view_loan_form_inh" model="ir.ui.view">
+			<field name="name">hr.loan.form.inherit</field>
+			<field name="model">hr.loan</field>
+			<field name="inherit_id" ref="hr_loan.hr_loan_form_view" />
+			<field name="arch" type="xml">
+				<field name="depart_id" position="after">
+					<field name="currency_id" groups="base.group_multi_currency" options="{'no_create': True,'no_quick_create': True, 'no_create_edit': True,'no_open': True}"
+								attrs="{'readonly':[('state','in',('refused','approved','cancel'))]}"/>
+				</field>
+			</field>
+		</record>
+		
+		<record id="view_loan_tree_inh" model="ir.ui.view">
+			<field name="name">hr.loan.tree.inherit</field>
+			<field name="model">hr.loan</field>
+			<field name="inherit_id" ref="hr_loan.hr_loan_tree_view" />
+			<field name="arch" type="xml">
+				<field name="balance" position="after">
+					<field name="currency_id" groups="base.group_multi_currency"/>
+				</field>
+			</field>
+		</record>
+		
+	</data>
+</openerp>

@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<template id="salary_detail">
+				<t t-call="web.external_layout">
+					<div class="page" >
+						<t t-foreach="docs" t-as="o">
+							<div class="row">
+								<h2><center><span>Salary Details <t t-esc="get_month_name"/></span></center></h2>
+							</div>
+							<br />
+							<table cellspacing="0" width="100%">
+								<tr>
+									<td style="font-weight:bold;border-style:none;">
+										<b>From</b>
+									</td>
+									<td style="border-style:none;">
+										<span t-esc="from_date" />
+									</td>
+									<td style="font-weight:bold;border-style:none;">
+										<b>To</b>
+									</td>
+									<td style="border-style:none;">
+										<span t-esc="to_date" />
+									</td>
+								</tr>
+								<tr>
+									<td style="font-weight:bold;border-style:none;">
+										<b>Print Date</b>
+									</td>
+									<td style="border-style:none;">
+										<span t-esc="time.strftime('%Y-%m-%d')" />
+									</td>
+								</tr>
+		
+							</table>
+							<br />
+							<table class="table table-condensed" style="width:100%">
+								<thead>
+									<tr>
+		                                <th style="text-align: center;border: 1px solid #DDDDDD;"></th>
+		                                <th style="text-align: center;border: 1px solid #DDDDDD;"></th>
+		                                <th style="text-align: center;border: 1px solid #DDDDDD;"></th>
+		                                <th colspan="5" style="text-align: center;border: 1px solid #DDDDDD;">Allowances</th>
+		                                <th style="text-align: center;border: 1px solid #DDDDDD;"></th>
+		                                <th colspan="5" style="text-align: center;border: 1px solid #DDDDDD;">Deductions</th>
+		                                <th style="text-align: center;border: 1px solid #DDDDDD;"></th>
+		                            </tr>
+		                            <tr>
+		                                <th style="text-align: center;border: 1px solid #DDDDDD;" rowspan="2">ID</th>
+		                                <th style="text-align: center;border: 1px solid #DDDDDD;" rowspan="2">Name</th>
+		                                <th style="text-align: center;border: 1px solid #DDDDDD;" rowspan="2">Basic Salary</th>
+		                                <th style="text-align: center;border: 1px solid #DDDDDD;">Communication</th>
+		                                <th style="text-align: center;border: 1px solid #DDDDDD;">Transportation</th>
+		                                <th style="text-align: center;border: 1px solid #DDDDDD;">Overtime</th>
+		                                <th style="text-align: center;border: 1px solid #DDDDDD;">Commission</th>
+		                                <th style="text-align: center;border: 1px solid #DDDDDD;">Others</th>
+		                                <th style="text-align: center;border: 1px solid #DDDDDD;" rowspan="2">Gross</th>
+		                                <th style="text-align: center;border: 1px solid #DDDDDD;">Attendance Deductions</th>
+		                                <th style="text-align: center;border: 1px solid #DDDDDD;">Social Security</th>
+		                                <th style="text-align: center;border: 1px solid #DDDDDD;">Health Insurance</th>
+		                                <th style="text-align: center;border: 1px solid #DDDDDD;">Loan</th>
+		                                <th style="text-align: center;border: 1px solid #DDDDDD;">Others</th>
+		                                <th style="text-align: center;border: 1px solid #DDDDDD;" rowspan="2">Net Salary</th>
+		                            </tr>
+								</thead>
+								<tbody>
+									<t t-foreach="payslipLines" t-as="line">
+										<tr style="border: 1px solid #DDDDDD;">
+											<td style="border: 1px solid #DDDDDD;">
+												<span t-esc="line['id']" />
+											</td>
+											<td style="border: 1px solid #DDDDDD;">
+												<span t-esc="line['name']" />
+											</td>
+											<td style="border: 1px solid #DDDDDD;">
+												<span t-esc="line['basic']" />
+											</td>
+											<td style="border: 1px solid #DDDDDD;">
+												<span t-esc="line['comm_alw']" />
+											</td>
+											<!-- Transportation -->
+											<td style="border: 1px solid #DDDDDD;">
+												<span t-esc="line['trans_alw']" />
+											</td>
+											
+											<td style="border: 1px solid #DDDDDD;">
+												<span t-esc="line['otr_alw']" />
+											</td>
+											<!-- Commission -->
+											<td style="border: 1px solid #DDDDDD;">
+												<span t-esc="line['commission_alw']" />
+											</td>
+											
+		                                    <td style="border: 1px solid #DDDDDD;">
+		                                        <span t-esc="line['other_alw']" />
+		                                    </td>
+		                                    
+		                                    <td style="border: 1px solid #DDDDDD;">
+		                                        <span t-esc="line['gross']" />
+		                                    </td>
+		                                    <!-- ADD -->
+		                                    <td style="border: 1px solid #DDDDDD;">
+		                                        <span t-esc="line['add_ded']" />
+		                                    </td>
+		                                    
+		                                    <td style="border: 1px solid #DDDDDD;">
+		                                        <span t-esc="line['ss_ded']" />
+		                                    </td>
+		                                    
+		                                    <td style="border: 1px solid #DDDDDD;">
+		                                        <span t-esc="line['hi_ded']" />
+		                                    </td>
+		                                    
+		                                    <!-- Loan -->
+		                                    <td style="border: 1px solid #DDDDDD;">
+		                                        <span t-esc="line['loan_ded']" />
+		                                    </td>
+		                                    
+		                                    <td style="border: 1px solid #DDDDDD;">
+		                                        <span t-esc="line['other_ded']" />
+		                                    </td>
+		                                    
+		                                    <td style="border: 1px solid #DDDDDD;">
+		                                        <span t-esc="line['net']" />
+		                                    </td>
+										</tr>
+									</t>
+									<t t-set="totals" t-value="get_totals()" />
+									<tr>
+										<td style="border-top:2px solid;font-weight:bold;"></td>
+										<td style="border-top:2px solid;font-weight:bold;">Total</td>
+										<td style="border-top:2px solid;font-weight:bold;">
+		                                    <span t-esc="totals['basic_total']" />
+		                                </td>
+		                                <td style="border-top:2px solid;font-weight:bold;">
+		                                    <span t-esc="totals['ca_total']" />
+		                                </td>
+		                                <!-- Trans -->
+		                                <td style="border-top:2px solid;font-weight:bold;">
+		                                    <span t-esc="totals['trans_total']" />
+		                                </td>
+		                                <td style="border-top:2px solid;font-weight:bold;">
+		                                    <span t-esc="totals['OTA_total']" />
+		                                </td>
+		                                <!-- Commission -->
+		                                <td style="border-top:2px solid;font-weight:bold;">
+		                                    <span t-esc="totals['commission_total']" />
+		                                </td>
+		                                
+		                                <td style="border-top:2px solid;font-weight:bold;">
+		                                    <span t-esc="totals['oa_total']" />
+		                                </td>
+		                                <td style="border-top:2px solid;font-weight:bold;">
+		                                    <span t-esc="totals['gross_total']" />
+		                                </td>
+		                                <!-- ADD -->
+		                                <td style="border-top:2px solid;font-weight:bold;">
+		                                    <span t-esc="totals['add_total']" />
+		                                </td>
+		                                <td style="border-top:2px solid;font-weight:bold;">
+		                                    <span t-esc="totals['ssd_total']" />
+		                                </td>
+		                                <td style="border-top:2px solid;font-weight:bold;">
+		                                    <span t-esc="totals['hi_total']" />
+		                                </td>
+		                                <!-- Loan -->
+		                                <td style="border-top:2px solid;font-weight:bold;">
+		                                    <span t-esc="totals['loan_total']" />
+		                                </td>
+		                                <td style="border-top:2px solid;font-weight:bold;">
+		                                    <span t-esc="totals['od_total']" />
+		                                </td>
+		                                <td style="border-top:2px solid;font-weight:bold;">
+		                                    <span t-esc="totals['net_total']" />
+		                                </td>
+									</tr>
+								</tbody>
+							</table>
+							<br />
+							<table style="width:100%;border-style:none;">
+								<tr>
+		                            <td style="border-style:none;">Human Resource Signature</td>
+		                            <td style="border-style:none;">Financial Manager Signature</td>
+		                            <td style="border-style:none;">General Manager Signature</td>
+		                        </tr>
+		                        <tr>
+		                            <td style="border-style:none;">.............</td>
+		                            <td style="border-style:none;">.............</td>
+		                            <td style="border-style:none;">.............</td>
+		                        </tr>
+							</table>
+						</t>
+					</div>
+				</t>
+		</template>
+
+	</data>
+</openerp>

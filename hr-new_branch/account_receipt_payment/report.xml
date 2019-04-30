@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<report id="payment_receipt_report" model="account.voucher" string="Receipt Report"
+			report_type="qweb-pdf" name="sw_account_receipt_payment.payment_receipt"
+			file="sw_account_receipt_payment.payment_receipt" attachment="('Payment-Receipt'+(object.number or '').replace('/','')+'.pdf')" />
+	</data>
+</openerp>

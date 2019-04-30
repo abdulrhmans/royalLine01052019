@@ -1,0 +1,469 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* hr_report_salary
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 11.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-26 18:04+0000\n"
+"PO-Revision-Date: 2018-03-26 18:04+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_state
+msgid "<b>From</b>"
+msgstr "<b>من تاريخ</b>"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_state
+msgid "<b>Print Date</b>"
+msgstr "<b>تاريخ الطباعة</b>"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_state
+msgid "<b>To</b>"
+msgstr "<b>الى تاريخ</b>"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_state
+msgid "<span>Salary Statement</span>"
+msgstr "<span>بيان الراتب</span>"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+msgid "Allowances"
+msgstr "البدالات"
+
+#. module: hr_report_salary
+#: code:addons/hr_report_salary/report/salary_detail_report.py:194
+#, python-format
+msgid "April"
+msgstr "نيسان"
+
+#. module: hr_report_salary
+#: selection:salary.details.report,sort_type:0
+msgid "Ascending"
+msgstr "تصاعدي"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+msgid "Attendance Deductions"
+msgstr "خصومات الحضور"
+
+#. module: hr_report_salary
+#: code:addons/hr_report_salary/report/salary_detail_report.py:202
+#, python-format
+msgid "August"
+msgstr "اب"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_state
+msgid "Authorized Signature\n"
+"								.............................................."
+msgstr "التوقيع المعتمد\n"
+"								.............................................."
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_state
+msgid "Bank"
+msgstr "البنك"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_state
+msgid "Bank Account"
+msgstr "الحساب البنكي"
+
+#. module: hr_report_salary
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_statements_report_salary
+msgid "Based On"
+msgstr "على اساس"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_state
+#: selection:salary.statements.report,salary:0
+msgid "Basic Salary"
+msgstr "الراتب الاساسي"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_state
+msgid "Branch"
+msgstr "الفرع"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.wizard_salary_details_report
+#: model:ir.ui.view,arch_db:hr_report_salary.wizard_salary_statement_report
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+msgid "Commission"
+msgstr "عمولة"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+msgid "Communication"
+msgstr "إتصالات"
+
+#. module: hr_report_salary
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_details_report_create_uid
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_statements_report_create_uid
+msgid "Created by"
+msgstr "أنشئ بواسطة"
+
+#. module: hr_report_salary
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_details_report_create_date
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_statements_report_create_date
+msgid "Created on"
+msgstr "أنشئ في"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_state
+msgid "Curr"
+msgstr "العملة"
+
+#. module: hr_report_salary
+#: code:addons/hr_report_salary/report/salary_detail_report.py:210
+#, python-format
+msgid "December"
+msgstr "كانون الاول"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+msgid "Deductions"
+msgstr "الخصومات"
+
+#. module: hr_report_salary
+#: selection:salary.details.report,sort_type:0
+msgid "Descending"
+msgstr "تنازلي"
+
+#. module: hr_report_salary
+#: model:ir.model.fields,field_description:hr_report_salary.field_report_hr_report_salary_salary_detail_display_name
+#: model:ir.model.fields,field_description:hr_report_salary.field_report_hr_report_salary_salary_state_display_name
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_details_report_display_name
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_statements_report_display_name
+msgid "Display Name"
+msgstr "اسم العرض"
+
+#. module: hr_report_salary
+#: selection:salary.details.report,state:0
+msgid "Done"
+msgstr "المنتهية"
+
+#. module: hr_report_salary
+#: selection:salary.details.report,state:0
+msgid "Draft"
+msgstr "مسودة"
+
+#. module: hr_report_salary
+#: selection:salary.details.report,state:0
+msgid "Draft and Done"
+msgstr "مسودة و المنتهية"
+
+#. module: hr_report_salary
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_details_report_employee_ids
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_statements_report_employee_ids
+msgid "Employee"
+msgstr "الموظف"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_state
+msgid "Employee ID"
+msgstr "رقم الموظف"
+
+#. module: hr_report_salary
+#: code:addons/hr_report_salary/report/salary_detail_report.py:190
+#, python-format
+msgid "February"
+msgstr "شباط"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+msgid "Financial Manager Signature"
+msgstr "توقيع المدير المالي"
+
+#. module: hr_report_salary
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_details_report_from_date
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_statements_report_from_date
+msgid "From date"
+msgstr "من تاريخ"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+msgid "General Manager Signature"
+msgstr "توقيع المدير العام"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+msgid "Gross"
+msgstr "الاجمالي"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+msgid "Health Insurance"
+msgstr "التامين الصحي"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_state
+msgid "Health Insurance company contribution"
+msgstr "مساهمة الشركة في التامين الصحي"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+msgid "Human Resource Signature"
+msgstr "توقيع مدير الموارد البشرية"
+
+#. module: hr_report_salary
+#: model:ir.model.fields,field_description:hr_report_salary.field_report_hr_report_salary_salary_detail_id
+#: model:ir.model.fields,field_description:hr_report_salary.field_report_hr_report_salary_salary_state_id
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_details_report_id
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_statements_report_id
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+msgid "ID"
+msgstr "المعرف"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_state
+msgid "Income Tax"
+msgstr "ضريبة الدخل"
+
+#. module: hr_report_salary
+#: code:addons/hr_report_salary/report/salary_detail_report.py:188
+#, python-format
+msgid "January"
+msgstr "كانون الثاني"
+
+#. module: hr_report_salary
+#: code:addons/hr_report_salary/report/salary_detail_report.py:200
+#, python-format
+msgid "July"
+msgstr "تموز"
+
+#. module: hr_report_salary
+#: code:addons/hr_report_salary/report/salary_detail_report.py:198
+#, python-format
+msgid "June"
+msgstr "حزيران"
+
+#. module: hr_report_salary
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_statements_report_landscape
+msgid "Landscape Mode"
+msgstr "وضعية الطباعه العرضية"
+
+#. module: hr_report_salary
+#: model:ir.model.fields,field_description:hr_report_salary.field_report_hr_report_salary_salary_detail___last_update
+#: model:ir.model.fields,field_description:hr_report_salary.field_report_hr_report_salary_salary_state___last_update
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_details_report___last_update
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_statements_report___last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: hr_report_salary
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_details_report_write_uid
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_statements_report_write_uid
+msgid "Last Updated by"
+msgstr "آخر تحديث بواسطة"
+
+#. module: hr_report_salary
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_details_report_write_date
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_statements_report_write_date
+msgid "Last Updated on"
+msgstr "آخر تحديث في"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+msgid "Loan"
+msgstr "القرض"
+
+#. module: hr_report_salary
+#: code:addons/hr_report_salary/report/salary_detail_report.py:192
+#, python-format
+msgid "March"
+msgstr "اذار"
+
+#. module: hr_report_salary
+#: code:addons/hr_report_salary/report/salary_detail_report.py:196
+#, python-format
+msgid "May"
+msgstr "ايار"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_state
+#: selection:salary.details.report,sort_on:0
+msgid "Name"
+msgstr "الاسم"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_state
+#: selection:salary.statements.report,salary:0
+msgid "Net Salary"
+msgstr "صافي الراتب"
+
+#. module: hr_report_salary
+#: code:addons/hr_report_salary/report/salary_detail_report.py:208
+#, python-format
+msgid "November"
+msgstr "تشرين الثاني"
+
+#. module: hr_report_salary
+#: code:addons/hr_report_salary/report/salary_detail_report.py:206
+#, python-format
+msgid "October"
+msgstr "تشرين الاول"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+msgid "Others"
+msgstr "اخرى"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+msgid "Overtime"
+msgstr "اضافي"
+
+#. module: hr_report_salary
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_details_report_state
+msgid "Payslip State"
+msgstr "حالة قسيمة الراتب"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.wizard_salary_details_report
+#: model:ir.ui.view,arch_db:hr_report_salary.wizard_salary_statement_report
+msgid "Print"
+msgstr "طباعة"
+
+#. module: hr_report_salary
+#: model:ir.ui.menu,name:hr_report_salary.menu_hr_report
+msgid "Reports"
+msgstr "التقارير"
+
+#. module: hr_report_salary
+#: selection:salary.details.report,sort_on:0
+msgid "Salary"
+msgstr "الراتب"
+
+#. module: hr_report_salary
+#: model:ir.actions.act_window,name:hr_report_salary.action_wizard_salary_details_report
+#: model:ir.actions.report,name:hr_report_salary.salary_detail_report
+#: model:ir.ui.menu,name:hr_report_salary.menu_salary_details
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+msgid "Salary Details"
+msgstr "تفاصيل الراتب"
+
+#. module: hr_report_salary
+#: model:ir.model,name:hr_report_salary.model_salary_details_report
+msgid "Salary Details Report"
+msgstr "تقرير تفاصيل الرواتب"
+
+#. module: hr_report_salary
+#: model:ir.actions.act_window,name:hr_report_salary.action_wizard_salary_statement_report
+#: model:ir.actions.report,name:hr_report_salary.salary_state_report
+#: model:ir.ui.menu,name:hr_report_salary.menu_salary_statements
+#: model:ir.ui.view,arch_db:hr_report_salary.wizard_salary_details_report
+#: model:ir.ui.view,arch_db:hr_report_salary.wizard_salary_statement_report
+msgid "Salary Statements"
+msgstr "بيان الراتب"
+
+#. module: hr_report_salary
+#: model:ir.model,name:hr_report_salary.model_salary_statements_report
+msgid "Salary Statements Report"
+msgstr "تقير بيان الرواتب"
+
+#. module: hr_report_salary
+#: code:addons/hr_report_salary/report/salary_detail_report.py:204
+#, python-format
+msgid "September"
+msgstr "ايلول"
+
+#. module: hr_report_salary
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_statements_report_show_bank_account
+msgid "Show Bank Account Number"
+msgstr "عرض رقم الحساب البنكي"
+
+#. module: hr_report_salary
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_statements_report_hi_company
+msgid "Show Health Insurance company contribution"
+msgstr "عرض مساهمة الشركة في التامين الصحي"
+
+#. module: hr_report_salary
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_statements_report_show_income_tax
+msgid "Show Income Tax"
+msgstr "عرض ضريبة الدخل"
+
+#. module: hr_report_salary
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_statements_report_show_social_security
+msgid "Show Social Security"
+msgstr "عرض الضمان الاجنماعي"
+
+#. module: hr_report_salary
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_statements_report_ss_company
+msgid "Show Social Security company contribution"
+msgstr "عرض مساهمة الشركة في الضمان الاجتماعي"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_state
+msgid "Social Security"
+msgstr "الضمان الاجنماعي"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_state
+msgid "Social Security company contribution"
+msgstr "مساهمة الشركة في الضمان الاجتماعي"
+
+#. module: hr_report_salary
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_details_report_sort_on
+msgid "Sort On"
+msgstr "الترتيب على"
+
+#. module: hr_report_salary
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_details_report_sort_type
+msgid "Sort Type"
+msgstr "نوع الترتيب"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_state
+msgid "Stamp"
+msgstr "الختم"
+
+#. module: hr_report_salary
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_statements_report_statement
+msgid "Statement"
+msgstr "كشف الحساب"
+
+#. module: hr_report_salary
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_details_report_to_date
+#: model:ir.model.fields,field_description:hr_report_salary.field_salary_statements_report_to_date
+msgid "To date"
+msgstr "الى تاريخ"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_state
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.salary_detail
+msgid "Transportation"
+msgstr "النقل"
+
+#. module: hr_report_salary
+#: model:ir.ui.view,arch_db:hr_report_salary.wizard_salary_details_report
+#: model:ir.ui.view,arch_db:hr_report_salary.wizard_salary_statement_report
+msgid "or"
+msgstr "أو"
+

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<data>
+		<report id="account_analytic_report"
+			model="account.analytic.account" report_type="qweb-pdf"
+			string="Analytic Report" name="accounting_reports.analytic_report"
+			file="accounting_reports.analytic_report"
+			print_report_name="'Analytic Report'" />
+
+		<template id="analytic_report">
+			<t t-set="index" t-value="-1" />
+			<t t-foreach="acclines" t-as="line">
+				<t t-set="index" t-value="index+1" />
+				<t t-call="common_report.external_layout_without_bg">
+					<div class="page">
+						<h2>
+							<center>
+								<span>
+									Analytic Details
+								</span>
+							</center>
+						</h2>
+						<table cellspacing="0" width="100%">
+							<tr>
+								<td
+									style="font-weight:bold;border-style:none;width:75px;background-color:#ffffff">
+									<b>From:</b>
+								</td>
+								<td style="border-style:none;background-color:#ffffff">
+									<span t-esc="from_date" />
+								</td>
+								<td
+									style="font-weight:bold;border-style:none;width:50px;background-color:#ffffff">
+									<b>To:</b>
+								</td>
+								<td style="border-style:none;background-color:#ffffff">
+									<span t-esc="to_date" />
+								</td>
+							</tr>
+							<tr>
+								<td
+									style="font-weight:bold;border-style:none;width:75px;background-color:#ffffff">
+									<b>User:</b>
+								</td>
+								<td style="border-style:none;background-color:#ffffff">
+									<span t-esc="user.name" />
+								</td>
+								<td
+									style="font-weight:bold;border-style:none;width:75px;background-color:#ffffff">
+									<b>Print Date:</b>
+								</td>
+								<td style="border-style:none;background-color:#ffffff">
+									<span t-esc="time.strftime('%Y-%m-%d %H:%M:%S')" />
+								</td>
+							</tr>
+						</table>
+						<br/>
+						<t t-foreach="docs" t-as="o">
+							<table class="table table-condensed" style="width:100%">
+								<thead>
+									<tr>
+										<th style="text-align: left;border: 1px solid #DDDDDD;"
+											rowspan="2">Account</th>
+										<th style="text-align: center;border: 1px solid #DDDDDD;"
+											rowspan="2">Debit</th>
+										<th style="text-align: center;border: 1px solid #DDDDDD;"
+											rowspan="2">Credit</th>
+										<th style="text-align: center;border: 1px solid #DDDDDD;"
+											rowspan="2">Balance</th>
+									</tr>
+								</thead>
+								<tbody>
+
+
+									<tr style="border: 1px solid #DDDDDD;">
+										<td style="border: 1px solid #DDDDDD;font-weight:bold;">
+											<span t-esc="line[1]" />
+										</td>
+										<td style="border: 1px solid #DDDDDD;">
+										</td>
+										<td style="border: 1px solid #DDDDDD;">
+										</td>
+										<td style="border: 1px solid #DDDDDD;">
+										</td>
+									</tr>
+									<t t-set="td" t-value="0" />
+									<t t-set="tc" t-value="0" />
+									<t t-set="tb" t-value="0" />
+
+									<t t-foreach="line[2]" t-as='line1'>
+										<tr style="border: 1px solid #DDDDDD;">
+
+											<td style="border: 1px solid #DDDDDD;">
+												<span style="opacity: 0.0;">......</span>
+												<span t-esc="line1['name']" />
+											</td>
+											<td style="border: 1px solid #DDDDDD;text-align: right;">
+												<span t-esc="'%.3f'% line1['debit']" />
+											</td>
+											<td style="border: 1px solid #DDDDDD;text-align: right;">
+												<span t-esc="'%.3f'% line1['credit']" />
+											</td>
+											<td style="border: 1px solid #DDDDDD;text-align: right;">
+												<span t-esc="'%.3f'% line1['bal']" />
+											</td>
+											<t t-set="td" t-value="td+line1['debit']" />
+											<t t-set="tc" t-value="tc+line1['credit']" />
+											<t t-set="tb" t-value="tb+line1['bal']" />
+										</tr>
+									</t>
+									<tr style="border: 1px solid #DDDDDD;">
+
+
+										<td style="border: 1px solid #DDDDDD;font-weight: bold;">
+											<span style="opacity: 0.0;">......</span>
+											Total:
+										</td>
+										<td style="border: 1px solid #DDDDDD;text-align: right;">
+											<span t-esc="'%.3f'% td" />
+										</td>
+										<td style="border: 1px solid #DDDDDD;text-align: right;">
+											<span t-esc="'%.3f'% tc" />
+										</td>
+										<td style="border: 1px solid #DDDDDD;text-align: right;">
+											<span t-esc="'%.3f'%(td-tc)" />
+										</td>
+									</tr>
+
+
+									<t t-if="index &gt; 0">
+										<tr>
+											<th style="text-align: right;border: 1px solid #DDDDDD;"
+												rowspan="2">Total</th>
+										</tr>
+										<td style="border: 1px solid #DDDDDD;text-align: right;font-weight: bold;">
+											<span t-esc="'%.3f'% debit_tot" />
+										</td>
+										<td style="border: 1px solid #DDDDDD;text-align: right;font-weight: bold;">
+											<span t-esc="'%.3f'% cre" />
+										</td>
+										<td style="border: 1px solid #DDDDDD;text-align: right;font-weight: bold;">
+											<span t-esc="'%.3f'%(debit_tot-cre)" />
+										</td>
+									</t>
+								</tbody>
+							</table>
+						</t>
+					</div>
+				</t>
+			</t>
+		</template>
+	</data>
+</odoo>

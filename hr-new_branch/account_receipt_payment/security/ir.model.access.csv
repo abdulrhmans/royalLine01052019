@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_account_receipt_payment_line,account.payment.receipt.line,model_account_payment_receipt_line,account.group_account_invoice,1,1,1,1
+access_account_receipt_voucher_line,account.payment.order.line,model_account_payment_order_line,account.group_account_invoice,1,1,1,1

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+
+	<data noupdate="1">
+		<function model="account.payment" name="_remove_inherit_form"/>
+	</data>
+
+	<data>
+		
+		<record id="view_payment_form_inh" model="ir.ui.view">
+			<field name="name">account.payment.form.inherit</field>
+			<field name="model">account.payment</field>
+			<field name="inherit_id" ref="account_receipt_payment.view_payment_form_inh" />
+			<field name="arch" type="xml">
+				<field name="partner_id" position="replace">
+					<field name="partner_id" attrs="{'required': [('non_contact','!=',True),('loan_id','=',False),('payment_type', 'in', ('inbound', 'outbound'))], 
+					'invisible': ['|',('non_contact','=',True),('payment_type', 'not in', ('inbound', 'outbound'))], 'readonly': [('state', '!=', 'draft')]}" 
+					context="{'default_is_company': True, 'default_supplier': payment_type == 'outbound', 'default_customer': payment_type == 'inbound'}"/>
+				</field>
+				<field name="communication" position="after">
+					<field name="loan_id" readonly="0"/>
+				</field>
+			</field>
+		</record>
+		
+	</data>
+</openerp>

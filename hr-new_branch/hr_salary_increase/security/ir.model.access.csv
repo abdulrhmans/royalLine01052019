@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_salary_increase_employee,hr.salary.increase.employee,model_hr_salary_increase_employee,hr.group_hr_user,1,1,1,1
+access_hr_salary_increase_line,hr.salary.increase.line,model_hr_salary_increase_line,hr.group_hr_user,1,1,1,1
+access_hr_salary_increase_history,hr.salary.increase.history,model_hr_salary_increase_history,hr.group_hr_user,1,1,1,1
+access_hr_salary_increase_history emp,hr.salary.increase.history,model_hr_salary_increase_history,base.group_user,1,0,0,0
+access_hr_salary_increase_employee_account,hr.salary.increase.employee,model_hr_salary_increase_employee,account.group_account_manager,1,1,1,1
+access_hr_salary_increase_line_account,hr.salary.increase.line,model_hr_salary_increase_line,account.group_account_manager,1,1,1,1

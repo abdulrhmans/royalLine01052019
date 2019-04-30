@@ -1,0 +1,27 @@
+<openerp>
+	<data>
+
+		<record id="collect_checks_view" model="ir.ui.view">
+			<field name="name">collect.checks.action.form</field>
+			<field name="model">collect.checks.action</field>
+			<field name="arch" type="xml">
+				<form string="Collect Cheques" >
+					<group>
+						<label string="Are you sure you want to collect selected Cheques ?" />
+					</group>
+					<footer>
+						<button string="Collect" name="collect_checks" type="object"
+							default_focus="1" class="oe_highlight" />
+						or
+						<button string="Cancel" class="oe_link" special="cancel" />
+					</footer>
+				</form>
+			</field>
+		</record>
+
+		<act_window id="action_collect_checks" multi="True" groups="account.group_account_user"
+			key2="client_action_multi" name="Collect Cheques" res_model="collect.checks.action"
+			src_model="account.payment" view_mode="form" target="new" view_type="form" />
+
+	</data>
+</openerp>

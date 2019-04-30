@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+db_backup_options,db_backup_options  access,model_db_backup_options,base.group_system,1,1,1,1
+db_backup_retention_preceding_period,db_backup_retention_preceding_period access,model_db_backup_retention_preceding_period,base.group_system,1,1,1,1
+db_backup_retention_manual_sequence,db_backup_retention_manual_sequence access,model_db_backup_retention_manual_sequence,base.group_system,1,1,1,1
+db_backup_google_drive_link,db_backup_google_drive_link access,model_db_backup_google_drive_link,base.group_system,1,1,1,1
+db_backup_configuration,db_backup_configuration access,model_db_backup_configuration,base.group_system,1,1,1,1
+db_backup_remote_server_logins,db_backup_remote_server_logins access,model_db_backup_remote_server_logins,base.group_system,1,1,1,1
+db_backup_google_account,db_backup_google_account access,model_db_backup_google_account,base.group_system,1,1,1,1
+db_backup_email_accounts,db_backup_email_accounts access,model_db_backup_email_accounts,base.group_system,1,1,1,1
+db_backups,db_backups access,model_db_backups,base.group_system,1,1,1,1

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		
+		<template id="tb_table">
+			<tr>
+	            <th t-att-class="'o_account_report_column_header'" colspan="1"><t t-esc="options.get('analytic_name', '')"/></th>
+	            <th t-att-class="'o_account_report_column_header text-center'" colspan="2">Initial Balance</th>
+	            <t t-foreach="model.reverse(options['comparison'].get('periods'))" t-as="column_header">
+	                <th t-att-class="'o_account_report_column_header text-center'" colspan="2">
+	                    <t t-esc="column_header.get('string')"/>
+	                </th>
+	            </t>
+	            <th t-att-class="'o_account_report_column_header text-center'" colspan="2">
+	                <t t-esc="options['date'].get('string')"/>
+	            </th>
+	            <th t-att-class="'o_account_report_column_header text-center'" colspan="2">Total</th>
+	        </tr>
+		</template>
+		
+		<template id="template_coa_report" inherit_id="account_reports.main_template" primary="True">
+		    <xpath expr="//thead/tr" position="before">
+		        <t t-call="tb_report_groupby_analytic_account.tb_table" />
+		    </xpath>
+		</template>
+
+
+
+		<template id="template_coa_report_analytic">
+		    <div class='o_account_reports_body'>
+		        <div class="container o_account_reports_page o_account_reports_no_print">
+		            <div class="o_account_reports_summary_edit">
+		                <textarea name="summary"><t t-if="report.get('summary')" t-esc="report['summary']" /></textarea>
+		                <button class="btn btn-primary js_account_report_save_summary">Save</button>
+		            </div>
+		            <div class="table-responsive">
+		                <table width="100%" class="o_account_reports_table">
+		                    <thead>
+		                    	<t t-call="tb_report_groupby_analytic_account.tb_table" />
+		                        <tr>
+		                            <t t-foreach="lines.get('columns_header')" t-as="column_header">
+		                                <th t-att-class="'o_account_report_column_header ' + (column_header.get('class', ''))" t-att-style="column_header.get('style', '')">
+		                                    <t t-esc="column_header.get('name')"/>
+		                                </th>
+		                            </t>
+		                        </tr>
+		                    </thead>
+		                    <tbody>
+		                        <t t-if="lines.get('lines')">
+		                            <t t-call="account_reports.line_template" />
+		                        </t>
+		                    </tbody>
+		                </table>
+		            </div>
+		            <div class="js_account_report_footnotes"/>
+		        </div>
+		    </div>
+		</template>
+			
+		
+		<template id="search_template_analytic" inherit_id="account_reports.search_template_analytic">
+		    <ul position="inside">
+		        <li style='margin-left: 10px; margin-right: 10px;'>
+		        	<input class="js_account_reports_analytic_separate" data-filter="analytic_table_separate" type="checkbox" name="separate_analytic" value="separate_analytic">Group By</input>
+		        </li>
+	            <li class="divider"></li>
+		    </ul>
+		</template>
+			
+	</data>
+</odoo>

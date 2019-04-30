@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+
+		<template id="layout" inherit_id="web.report_assets_common">
+			<xpath expr='//link[@href="/web/static/src/less/layout_clean.less"]'
+				position="after">
+				<link href="/common_report/static/src/css/table_report.css" rel="stylesheet" type="text/css"/>
+				<link href="/common_report/static/src/css/original.css" rel="stylesheet" type="text/css"/>
+				<link href="/common_report/static/src/less/layout_background.less" rel="stylesheet" type="text/less"/>
+			</xpath>
+		</template>
+		
+		
+		<template id="external_layout_without_background">
+	        <div class="header o_background_header">
+	            <div class="pull-right">
+	                <h3 class="mt0 text-right" t-field="company.report_header"/>
+	            </div>
+	            <img t-if="company.logo" t-att-src="'data:image/png;base64,%s' % to_text(company.logo)" class="pull-left"/>
+	            <div class="pull-left company_address">
+	                <div>
+	                    <strong t-field="company.partner_id.name"/>
+	                </div>
+	                <span t-field="company.partner_id"
+	                    t-field-options='{"widget": "contact", "fields": ["address"], "no_marker": true}'/>
+	            </div>
+	            <div class="clearfix mb8"/>
+	        </div>
+	
+	        <div class="article o_report_layout_without_background">
+	            <t t-raw="0" />
+	        </div>
+	
+	        <div class="footer o_background_footer">
+	            <div class="text-center">
+	                <ul class="list-inline">
+	                    <li t-if="company.phone"><i class="fa fa-phone"/> <span t-field="company.phone"/></li>
+	                    <li t-if="company.email"><i class="fa fa-at"/> <span t-field="company.email"/></li>
+	                    <li t-if="company.website"><i class="fa fa-globe"/> <span t-field="company.website"/></li>
+	                    <li t-if="company.vat"><i class="fa fa-building-o"/><t t-esc="company.country_id.vat_label or 'TIN'"/>: <span t-field="company.vat"/></li>
+	                </ul>
+	                <div t-field="company.report_footer"/>
+	                <div class="text-muted">
+	                    Page:
+	                    <span class="page"/>
+	                    of
+	                    <span class="topage"/>
+	                </div>
+	            </div>
+	        </div>
+	    </template>
+	    
+	    
+	    <template id="web.external_layout">
+	        <!-- Multicompany -->
+	        <t t-if="not o and doc">
+	            <t t-set="o" t-value="doc"/>
+	        </t>
+	
+	        <t t-if="o and 'company_id' in o">
+	            <t t-set="company" t-value="o.company_id.sudo()"/>
+	        </t>
+	        <t t-if="not o or not 'company_id' in o">
+	            <t t-set="company" t-value="res_company"/>
+	        </t>
+	
+	        <t t-if="company.external_report_layout == 'background'">
+	            <t t-call="web.external_layout_background"><t t-raw="0"/></t>
+	        </t>
+	        <t t-if="company.external_report_layout == 'without_background'">
+	            <t t-call="common_report.external_layout_without_background"><t t-raw="0"/></t>
+	        </t>
+	        <t t-if="company.external_report_layout == 'boxed'">
+	            <t t-call="web.external_layout_boxed"><t t-raw="0"/></t>
+	        </t>
+	        <t t-if="company.external_report_layout == 'clean'">
+	            <t t-call="web.external_layout_clean"><t t-raw="0"/></t>
+	        </t>
+	        <t t-if="company.external_report_layout in (False, 'standard')">
+	            <t t-call="web.external_layout_standard"><t t-raw="0"/></t>
+	        </t>
+	    </template>
+	    
+	    
+	    <template id="external_layout_without_bg">
+	        <!-- Multicompany -->
+	        <style type="text/css"> 
+				body {
+			        font-family: 'Times New Roman';
+			    }
+			</style>
+	        <t t-if="not o and doc">
+	            <t t-set="o" t-value="doc"/>
+	        </t>
+	
+	        <t t-if="o and 'company_id' in o">
+	            <t t-set="company" t-value="o.company_id.sudo()"/>
+	        </t>
+	        <t t-if="not o or not 'company_id' in o">
+	            <t t-set="company" t-value="res_company"/>
+	        </t>
+	        <t t-call="common_report.external_layout_without_background"><t t-raw="0"/></t>
+	        
+	    </template>
+    	
+    	
+        
+        
+        
+    
+	</data>
+</openerp>

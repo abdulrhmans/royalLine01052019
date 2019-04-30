@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record model="ir.ui.view" id="si_tree_view">
+			<field name="name">Salary Increase</field>
+			<field name="model">hr.salary.increase.employee</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Salary Increase">
+					<field name="name" />
+					<field name="date" />
+					<field name="amount_percentage" />
+					<field name="state" />
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="si_form_view">
+			<field name="name">Salary Increase</field>
+			<field name="model">hr.salary.increase.employee</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Salary Increase">
+					<header>
+						<button string="Confirm" name="confirm_si" states="draft"
+							type="object" class="oe_highlight" groups="account.group_account_manager" />
+						<button string="Approve" name="approve_si" states="confirmed"
+							type="object" class="oe_highlight" groups="hr.group_hr_manager" />
+						<button string="Refuse" name="refuse_si" states="confirmed,draft"
+							type="object" class="oe_highlight" groups="hr.group_hr_manager" />
+						<field name="state" widget="statusbar"
+							statusbar_visible="draft,confirmed,approved" />
+					</header>
+					<sheet>
+						<group>
+							<group>
+								<div>
+									<h1>
+										<field name="name" placeholder="Name" attrs="{'readonly':[('state','!=','draft')]}"/>
+									</h1>
+								</div>
+							</group>
+						</group>
+						<group>
+							<group>
+								<field name="increase_method"
+									attrs="{'readonly':[('state','!=','draft')]}" widget="radio" />
+								<field name="amount_percentage"
+									attrs="{'readonly':[('state','!=','draft')]}" />
+							</group>
+							<group>
+								<field name="date"
+									attrs="{'readonly':[('state','!=','draft')]}" />
+
+							</group>
+						</group>
+						<notebook>
+							<page string="Employees">
+								<button attrs="{'invisible':[('state','!=','draft')]}" name="%(hr_salary_increase.action_add_employee)d" icon="fa-plus-square" type="action"/>
+								<button attrs="{'invisible':[('state','!=','draft')]}" name="clear_employee" icon="fa-trash-o" type="object" confirm="Are you sure you want to remove all employees?"/>
+								<group>
+									<field name="si_line_ids" nolabel="1"
+										attrs="{'readonly':[('state','!=','draft')]}">
+										<tree editable="bottom">
+											<field name="employee_id"
+												options="{'no_create': True,'no_quick_create': True,'no_open': True, 'no_create_edit': True}" />
+											<field name="contract_id" />
+											<field name="job_id" />
+											<field name="department_id" />
+											<field name="wage" sum='Total'/>
+											<field name="amount_percentage" />
+											<field name="wage_after_increase" sum='Total'/>
+										</tree>
+									</field>
+								</group>
+							</page>
+						</notebook>
+
+						<group string="Notes">
+							<field name="note" nolabel="1"
+								attrs="{'readonly':[('state','!=','draft')]}" />
+						</group>
+
+					</sheet>
+					<div class="oe_chatter">
+						<field name="message_follower_ids" widget="mail_followers"
+							groups="hr.group_hr_user" />
+						<field name="message_ids" widget="mail_thread" />
+					</div>
+				</form>
+			</field>
+		</record>
+
+		<record id="si_search_view" model="ir.ui.view">
+			<field name="name">Salary Increase</field>
+			<field name="model">hr.salary.increase.employee</field>
+			<field name="arch" type="xml">
+				<search string="Search">
+					<field name="name" />
+					<field name="date" />
+					<field name="amount_percentage" />
+					<filter string="Draft" name="state"
+						domain="[('state','=','draft')]" />
+					<filter string="Approved" name="state"
+						domain="[('state','=','approved')]" />
+					<filter string="Refused" name="state"
+						domain="[('state','=','refuse')]" />
+					<group expand="0" string="Group By..." colspan="12" col="10">
+						<filter string="Day" icon="terp-go-today" domain="[]"
+							context="{'group_by':'date'}" />
+						<filter string="amount_percentage" icon="terp-go-today"
+							domain="[]" context="{'group_by':'amount_percentage'}" />
+					</group>
+				</search>
+			</field>
+		</record>
+
+
+		<record model="ir.actions.act_window" id="action_si_tree_view">
+			<field name="name">Salary Increase</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">hr.salary.increase.employee</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+			<field name="search_view_id" ref="si_search_view" />
+			<field name="view_id" ref="si_tree_view" />
+		</record>
+
+		<menuitem id="si_menu" name="Salary Increase"
+			groups="hr.group_hr_user,account.group_account_manager" parent="hr_payroll.menu_hr_payroll_root"
+			sequence="99" action="action_si_tree_view" />
+
+
+		<record id="view_hr_contract" model="ir.ui.view">
+			<field name="name">hr.contract.form</field>
+			<field name="model">hr.contract</field>
+			<field name="inherit_id"
+				ref="hr_contract.hr_contract_view_form" />
+			<field name="arch" type="xml">
+				<data>
+					<notebook position="inside">
+						<page string="Salary Increase History">
+							<field name="sih_ids" readonly="1">
+								<tree>
+									<field name="employee_id" />
+									<field name="old_wage" />
+									<field name="amount_percentage" />
+									<field name="increase_method" />
+									<field name="wage" />
+									<field name="date" />
+								</tree>
+							</field>
+						</page>
+					</notebook>
+				</data>
+			</field>
+		</record>
+
+
+
+	</data>
+</odoo>

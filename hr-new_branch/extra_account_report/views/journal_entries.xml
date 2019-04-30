@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	<data>
+		<template id="report_journal_entries">
+			<t t-call="common_report.external_layout_without_bg">
+				<div class="page">
+					<t t-foreach="docs" t-as="obj">
+						<div class="row">
+							<h2><center><span>Journal Entry</span></center></h2>
+						</div>
+						<br />
+						<table width="100%">
+							<thead>
+								<tr>
+									<td>
+										Journal :
+										<span t-field="obj.journal_id.name" />
+									</td>
+									<td>
+										Number :
+										<span t-field="obj.name" />
+									</td>
+									<td>
+										Date :
+										<span t-field="obj.date" />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										Ref :
+										<span t-field="obj.ref" />
+									</td>
+									<td />
+								</tr>
+							</thead>
+						</table>
+						<br />
+						<table class="table table-condensed" width="100%">
+							<thead>
+								<tr>
+									<th>Account</th>
+									<th>Memo</th>
+									<th>Debit</th>
+									<th>Credit</th>
+									<t t-foreach="getColumns(obj)" t-as="col">
+										<t t-if="getColumns(obj)[col][1]">
+											<th><span t-esc="col" /></th>
+										</t>
+									</t>
+								</tr>
+							</thead>
+							<tbody class="invoice_tbody">
+
+								<tr t-foreach="obj.line_ids.sorted(key=lambda line: line.id)" t-as="line">
+									<td>
+										<span t-esc="line.account_id.code+' - '+line.account_id.name" />
+									</td>
+									<td>
+										<span t-esc="line.name" />
+									</td>
+									<td class="text-right">
+										<span t-esc="formatLang(line['debit'], digits=3)" />
+									</td>
+									<td class="text-right">
+										<span t-esc="formatLang(line['credit'], digits=3)" />
+									</td>
+									<t t-foreach="getColumns(obj)" t-as="col">
+										<t t-if="getColumns(obj)[col][1]">
+											<t t-if="col in ['Amount Currency']">
+												<td>
+													<span t-esc="line[getColumns(obj)[col][0]]" />
+												</td>
+											</t>
+											<t t-if="col not in ['Amount Currency']">
+												<td>
+													<span t-esc="line[getColumns(obj)[col][0]].name" />
+												</td>
+											</t>
+										</t>
+									</t>
+								</tr>
+								<tr>
+									<td style="border-top:2px solid;text-align:center;">
+										<b>Total</b>
+									</td>
+									<td style="border-top:2px solid;text-align:center;"> </td>
+									<td style="border-top:2px solid;" class="text-right">
+										<b>
+											<span t-esc="formatLang(Totals[obj.id]['debit'], digits=3)" />
+										</b>
+									</td>
+									<td style="border-top:2px solid;" class="text-right">
+										<b>
+											<span t-esc="formatLang(Totals[obj.id]['credit'], digits=3)" />
+										</b>
+									</td>
+									<td style="border-style:none" />
+									<t t-foreach="getColumns(obj)" t-as="col">
+										<t t-if="getColumns(obj)[col][1]">
+											<td style="border-style:none" />
+										</t>
+									</t>
+								</tr>
+							</tbody>
+						</table>
+						<br />
+
+						<p t-if="obj.narration">
+							Internal Note :
+							<span t-esc="obj.narration" />
+						</p>
+
+						<table class="table table-condensed" style="text-align:center;width:100%;border-style:none;">
+							<tr>
+								<td style="text-align:center;border-style:none;">
+									Employee :
+									<b>
+										<span t-esc="user.name" />
+									</b>
+								</td>
+								<td style="text-align:center;border-style:none;">Signature ..............................</td>
+							</tr>
+						</table>
+						<p style="page-break-after:always"></p>
+					</t>
+				</div>
+			</t>
+		</template>
+
+	</data>
+</openerp>

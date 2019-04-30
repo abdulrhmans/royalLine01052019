@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+<odoo>
+  <data>
+
+	<record id="backup_scheduler" model="ir.cron">
+		<field name="name">Backup schedular</field>
+		<field name="priority">5</field>
+		<field name="doall">False</field>
+		<field name="active">True</field>
+		<field name="numbercall">-1</field>
+		<field name="nextcall">2017-12-01 01:00:00</field>
+		<field name="interval_number">1</field>
+		<field name="interval_type">days</field>
+		<field name="model_id" ref="model_db_backup_configuration"/>
+		<field name="state">code</field>
+		<field name="code">model.schedule_backup()</field>
+	</record>
+	
+	<record id="fiscal_year_backup_scheduler" model="ir.cron">
+		<field name="name">Fiscal Year Backup Schedular</field>
+		<field name="priority">5</field>
+		<field name="doall">False</field>
+		<field name="active">True</field>
+		<field name="numbercall">-1</field>
+		<field name="nextcall">2018-12-31 23:59:00</field>
+		<field name="interval_number">12</field>
+		<field name="interval_type">months</field>
+		<field name="model_id" ref="model_db_backup_configuration"/>
+		<field name="state">code</field>
+		<field name="code">model.fiscal_year_schedule_backup()</field>
+	</record>
+	
+	<record id="remove_old_backups_scheduler" model="ir.cron">
+		<field name="name">Remove Old Backups</field>
+		<field name="priority">5</field>
+		<field name="doall">False</field>
+		<field name="active">True</field>
+		<field name="numbercall">-1</field>
+		<field name="nextcall">2017-12-01 01:00:00</field>
+		<field name="interval_number">1</field>
+		<field name="interval_type">hours</field>
+		<field name="model_id" ref="model_db_backup_retention_preceding_period"/>
+		<field name="state">code</field>
+		<field name="code">model.retention_policy_remove_local_backups()</field>
+	</record>
+	
+	<record id="remove_old_google_drive_backups_scheduler" model="ir.cron">
+		<field name="name">Remove Google Drive Backups</field>
+		<field name="priority">5</field>
+		<field name="doall">False</field>
+		<field name="active">True</field>
+		<field name="numbercall">-1</field>
+		<field name="nextcall">2017-12-01 01:00:00</field>
+		<field name="interval_number">1</field>
+		<field name="interval_type">hours</field>
+		<field name="model_id" ref="model_db_backup_google_account"/>
+		<field name="state">code</field>
+		<field name="code">model.apply_account_retention_policy_remove_backups()</field>
+	</record>
+	
+	
+	<record id="remove_old_sftp_backups_scheduler" model="ir.cron">
+		<field name="name">Remove SFTP Backups</field>
+		<field name="priority">5</field>
+		<field name="doall">False</field>
+		<field name="active">True</field>
+		<field name="numbercall">-1</field>
+		<field name="nextcall">2017-12-01 01:00:00</field>
+		<field name="interval_number">1</field>
+		<field name="interval_type">hours</field>
+		<field name="model_id" ref="model_db_backup_remote_server_logins"/>
+		<field name="state">code</field>
+		<field name="code">model.apply_sftp_retention_policy_remove_backups()</field>
+	</record>
+	
+  </data>
+</odoo>

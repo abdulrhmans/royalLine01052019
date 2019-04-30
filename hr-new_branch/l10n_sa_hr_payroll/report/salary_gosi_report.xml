@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+		<template id="salary_gosi">
+			<t t-call="web.external_layout">
+				<div class="page">
+					<div class="row">
+						<h2>
+							<center>
+								<span>GOSI Report</span>
+							</center>
+						</h2>
+					</div>
+					<br />
+					<table cellspacing="0" width="100%">
+						<tr>
+							<td style="font-weight:bold;border-style:none;">
+								<b>From</b>
+							</td>
+							<td style="border-style:none;">
+								<span t-esc="data['form']['from_date']" />
+							</td>
+							<td style="font-weight:bold;border-style:none;">
+								<b>To</b>
+							</td>
+							<td style="border-style:none;">
+								<span t-esc="data['form']['to_date']" />
+							</td>
+						</tr>
+						<tr>
+							<td style="font-weight:bold;border-style:none;">
+								<b>Print Date</b>
+							</td>
+							<td style="border-style:none;">
+								<span t-esc="time.strftime('%Y-%m-%d')" />
+							</td>
+						</tr>
+						<tr>
+							<td style="font-weight:bold;border-style:none;">
+								<b>Note : </b>
+							</td>
+							<td style="border-style:none;">
+								<span t-esc="data['form']['note']" />
+							</td>
+						</tr>
+
+					</table>
+					<br />
+					<table class="table table-condensed" style="width:100%">
+						<thead>
+							<tr>
+							
+								<th>GOSI Number</th>
+									<th>Name</th>
+								<th>Employee Number</th>
+								<th>Nationality</th>
+								<th>Job Title</th>
+								<th>Hwayah/Iqma</th>
+								<th>Wage</th>
+								<th>GOSI Emp. Cont</th>
+								<th>GOSI Co. Cont</th>
+								<th>Monthly Pay To GOSI</th>
+							</tr>
+						</thead>
+						<tbody>
+							<t t-foreach="payslipLines(data['form'])" t-as="line">
+								<tr>
+									
+									<td rowspan="2">
+										<span t-esc="line['gosi_number']" />
+									</td>
+									<td style="border-bottom:none;">
+										<span t-esc="line['name']" />
+									</td>
+									<td rowspan="2">
+										<span t-esc="line['employee_number']" />
+									</td>
+									<td style="border-bottom:none;">
+										<span t-esc="line['national_name']" />
+									</td>
+									<td style="border-bottom:none;">
+										<span t-esc="line['job_name']" />
+									</td>
+								
+									<td rowspan="2">
+										<span t-esc="line['iqama']" />
+									</td>
+										<td rowspan="2" class="text-right">
+										<span t-esc="line['wage']" />
+									</td>
+									<td rowspan="2" class="text-right">
+										<span t-esc="line['gosi_ded']" />
+									</td>
+									<td rowspan="2" class="text-right">
+										<span t-esc="line['gosi_cont']" />
+									</td>
+									<td rowspan="2" class="text-right">
+										<span t-esc="line['monthly_pay_gosi']" />
+									</td>
+								</tr>
+								<tr>
+									<td style="border-top:none;">
+									</td>
+									<td style="border-top:none;">
+									</td>
+									<td style="border-top:none;">
+									</td>
+								</tr>
+							</t>
+							<t t-set="totals" t-value="get_totals()" />
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td class="text-right">
+									<b>
+										<span t-esc="totals['wage_total']" />
+									</b>
+								</td>
+								
+								<td class="text-right">
+									<b>
+										<span t-esc="totals['gosi_ded_total']" />
+									</b>
+								</td>
+								<td class="text-right">
+									<b>
+										<span t-esc="totals['gosi_cont_total']" />
+									</b>
+								</td>
+								<td class="text-right">
+									<b>
+										<span t-esc="totals['monthly_pay_gosi_total']" />
+									</b>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<br />
+				</div>
+			</t>
+		</template>
+
+	</data>
+</odoo>

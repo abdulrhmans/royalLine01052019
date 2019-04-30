@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_hr_employee_dependent_user,hr.employee.dependent,model_hr_employee_dependent,base.group_user,1,0,0,0
+access_hr_employee_dependent_manager,hr.employee.dependent,model_hr_employee_dependent,hr.group_hr_manager,1,1,1,1
+access_hr_employee_dependent_officer,hr.employee.dependent,model_hr_employee_dependent,hr.group_hr_user,1,1,1,1
+access_hr_bank_user,hr.bank,model_hr_bank,base.group_user,1,0,0,0
+access_hr_bank_manager,hr.bank,model_hr_bank,hr.group_hr_manager,1,1,1,1
+access_hr_bank_officer,hr.bank,model_hr_bank,hr.group_hr_user,1,1,1,1
+access_account_move,account.move,account.model_account_move,hr.group_hr_user,1,1,1,1
+access_account_move_line,account.move.line,account.model_account_move_line,hr.group_hr_user,1,1,1,1
+access_account_account_type,account.account.type,account.model_account_account_type,hr.group_hr_user,1,0,0,0
+access_hr_public_holiday_managers,access_hr_public_holiday,model_hr_public_holiday,hr.group_hr_manager,1,1,1,1
+access_hr_public_holiday_users,access_hr_public_holiday,model_hr_public_holiday,base.group_user,1,0,0,0
+access_hr_bank_b_user,hr.bank.barnch,model_hr_bank_branch,base.group_user,1,0,0,0
+access_hr_bank_b_manager,hr.bank.barnch,model_hr_bank_branch,hr.group_hr_manager,1,1,1,1
+access_hr_bank_b_officer,hr.bank.barnch,model_hr_bank_branch,hr.group_hr_user,1,1,1,1

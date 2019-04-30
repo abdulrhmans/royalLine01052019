@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+	<data>
+
+		<record model="ir.ui.view" id="view_bank_shortcut_tree">
+			<field name="name">pdc.config.tree</field>
+			<field name="model">pdc.config</field>
+			<field name="arch" type="xml">
+				<tree string="PDC's Configuration">
+					<field name="name" />
+					<field name="box_account" />
+					<field name="bank_account" />
+					<field name="pdc_received_account" />
+					<field name="pdc_issued_account" />
+					<field name="company_id" groups="base.group_multi_company"/>
+				</tree>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_bank_shortcut_form">
+			<field name="name">pdc.config.form</field>
+			<field name="model">pdc.config</field>
+			<field name="arch" type="xml">
+				<form string="PDC's Configuration">
+					<sheet>
+						<group col="3">
+							<div>
+								<h1>
+									<field name="name" />
+								</h1>
+							</div>
+						</group>
+						<group col="4">
+							<field name="box_account"  />
+							<field name="bank_account"  />
+							<field name="pdc_received_account"  />
+							<field name="pdc_issued_account"  />
+							<field name="company_id" groups="base.group_multi_company" readonly="1"/>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_bak_shortcut">
+			<field name="name">PDC's Configuration</field>
+			<field name="res_model">pdc.config</field>
+			<field name="view_type">form</field>
+			<field name="view_id" eval="view_bank_shortcut_tree" />
+			<field name="view_mode">tree,form</field>
+		</record>
+
+
+		<menuitem action="action_bak_shortcut" sequence="12"
+			id="menu_action_bak_shortcut" parent="account.menu_finance_configuration" />
+
+	</data>
+	<data noupdate="1">
+		<record id="pdc_config_comp_rule" model="ir.rule">
+	        <field name="name">PDC Configuration</field>
+	        <field name="model_id" ref="model_pdc_config"/>
+	        <field name="global" eval="True"/>
+	        <field name="domain_force">['|',('company_id','=',False),('company_id','child_of',[user.company_id.id])]</field>
+	    </record>
+	</data>
+</openerp>
